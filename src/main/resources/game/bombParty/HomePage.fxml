@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="stackPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane fx:id="anchorPaneHome" prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <Label>ein</Label>
+            <Label>ein</Label>
+            <Label layoutX="29.0" prefHeight="51.0" prefWidth="69.0">ein</Label>
+         </children>
+      </AnchorPane>
+   </children>
+
+   <stylesheets>
+      <URL value="@assets/HomePage_style.css" />
+   </stylesheets>
+</StackPane>
