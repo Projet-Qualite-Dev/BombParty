@@ -14,14 +14,12 @@ import java.util.Map;
 import java.util.Set;
 
 public class ParseJSON {
-    private String filename;
     private JSONObject JSONObject;
     private Map<String, Set<String>> wordList = new HashMap<>();
 
     public ParseJSON(String filename) throws IOException, URISyntaxException {
         long startTime = System.nanoTime();
-        String content = new String(Files.readAllBytes(Paths.get(getClass().getResource("/game/bombParty/" + filename).toURI())));
-        this.filename = filename;
+        String content = new String(Files.readAllBytes(Paths.get(getClass().getResource("/Generate/" + filename).toURI())));
         this.JSONObject = new JSONObject(content);
         this.JSONObjectToMap();
         System.out.println(System.nanoTime() - startTime);
