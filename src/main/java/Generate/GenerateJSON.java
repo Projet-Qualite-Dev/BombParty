@@ -16,7 +16,11 @@ public class GenerateJSON {
         this.wordList = new HashMap<>();
     }
 
-//    public void GenerateLetters() { // Méthode qui permet de générer une map mais n'est pas utilisable car on n'a pas les mots dans une variable.
+/*
+ * Méthode qui permet de générer une map mais n'est pas utilisable car on n'a pas les mots dans une variable.
+ * Elle consiste à prendre caractère par caractère sans prendre en compte que c'est des mots. Si la syllabe contient un "\n", alors on passe à l'itération suivante.
+*/
+//    public void GenerateLetters() {
 //        long startTime = System.nanoTime();
 //        for (int i = 0; i < this.dictionary.length() - 2; i++) {
 //            String current = dictionary.substring(i, i + 3);
@@ -55,27 +59,25 @@ public class GenerateJSON {
     }
 
     public void generateJSON() {
-
-//        File myObj = new File("filename.txt");
-        StringBuilder sb = new StringBuilder();
-        sb.append("{\n");
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("{\n");
         for (String key: this.wordList.keySet()) {
-            sb.append("\t\"" + key + "\": [\n");
+            stringBuilder.append("\t\"" + key + "\": [\n");
             int i = 0;
             for (String word: this.wordList.get(key)) {
                 ++i;
                 if (i == this.wordList.get(key).size()) {
-                    sb.append("\t\t\"" + word + "\"\n");
+                    stringBuilder.append("\t\t\"" + word + "\"\n");
                 } else {
-                    sb.append("\t\t\"" + word + "\",\n");
+                    stringBuilder.append("\t\t\"" + word + "\",\n");
                 }
             }
-            sb.append("\t],\n");
+            stringBuilder.append("\t],\n");
         }
-        sb.append('}');
+        stringBuilder.append('}');
         try {
-            FileWriter myWriter = new FileWriter("src/main/resources/game/bombParty/wordList.json");
-            myWriter.write(sb.toString());
+            FileWriter myWriter = new FileWriter("src/main/resources/Generate/wordList.json");
+            myWriter.write(stringBuilder.toString());
             myWriter.close();
         } catch (IOException e) {
             System.out.println(e);
