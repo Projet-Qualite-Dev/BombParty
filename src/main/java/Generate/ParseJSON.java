@@ -43,6 +43,6 @@ public class ParseJSON {
     }
 
     public static void main(String[] args) throws IOException, URISyntaxException {
-        ParseJSON a = new ParseJSON("filename.json");
+        ParseJSON a = new ParseJSON("wordList.json");
     }
 }
