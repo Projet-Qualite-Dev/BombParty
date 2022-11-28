@@ -16,20 +16,20 @@ public class GenerateJSON {
         this.wordList = new HashMap<>();
     }
 
-    public void GenerateLetters() { // Méthode qui permet de générer une map mais n'est pas utilisable car on n'a pas les mots dans une variable.
-        long startTime = System.nanoTime();
-        for (int i = 0; i < this.dictionary.length() - 2; i++) {
-            String current = dictionary.substring(i, i + 3);
-            if (!current.contains("\n")) {
-                if (this.wordList.containsKey(current)) {
-                    this.wordList.put(current, this.wordList.get(current) + 1);
-                } else {
-                    this.wordList.put(current, 1);
-                }
-            }
-        }
-        System.out.println(System.nanoTime() - startTime);
-    }
+//    public void GenerateLetters() { // Méthode qui permet de générer une map mais n'est pas utilisable car on n'a pas les mots dans une variable.
+//        long startTime = System.nanoTime();
+//        for (int i = 0; i < this.dictionary.length() - 2; i++) {
+//            String current = dictionary.substring(i, i + 3);
+//            if (!current.contains("\n")) {
+//                if (this.wordList.containsKey(current)) {
+//                    this.wordList.put(current, this.wordList.get(current) + 1);
+//                } else {
+//                    this.wordList.put(current, 1);
+//                }
+//            }
+//        }
+//        System.out.println(System.nanoTime() - startTime);
+//    }
 
     public void GenerateLettersAndWordList() {
         long startTime = System.nanoTime();
