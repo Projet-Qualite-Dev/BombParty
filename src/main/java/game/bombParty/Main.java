@@ -8,14 +8,18 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class Main extends Application {
 
     private StackPane homePage;
     private final StackPane stackPaneMain = new StackPane();
 
     @Override
     public void start(Stage stage) throws IOException {
-        this.homePage = FXMLLoader.load(HelloApplication.class.getResource("/game/bombParty/HomePage.fxml"));
+        launchAPage(stage, "/game/bombParty/HomePage.fxml");
+    }
+
+    public void launchAPage(Stage stage, String page) throws IOException {
+        this.homePage = FXMLLoader.load(Main.class.getResource(page));
         this.homePage.setVisible(true);
         this.stackPaneMain.getChildren().setAll(homePage);
         Scene scene = new Scene(this.stackPaneMain);
