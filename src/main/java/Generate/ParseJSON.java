@@ -1,28 +1,48 @@
 package Generate;
 
 import java.io.*;
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class ParseJSON {
     private String filename;
     private JSONObject JSONObject;
+    private Map<String, Set<String>> wordList = new HashMap<>();
 
     public ParseJSON(String filename) throws IOException, URISyntaxException {
-        String content = new String(Files.readAllBytes(Paths.get(getClass().getResource("/game/bombParty/exemple.json").toURI())));
+        long startTime = System.nanoTime();
+        String content = new String(Files.readAllBytes(Paths.get(getClass().getResource("/game/bombParty/" + filename).toURI())));
         this.filename = filename;
         this.JSONObject = new JSONObject(content);
+        this.JSONObjectToMap();
+        System.out.println(System.nanoTime() - startTime);
     }
 
-    public Set<String> getAllWordBySyllab() {
+    private void JSONObjectToMap() {
+        for (String key: this.JSONObject.keySet()) {
+            this.wordList.put(key, getAllWordBySyllab(key));
+        }
+    }
 
+    public Set<String> getAllWordBySyllab(String syllab) {
+        JSONArray jsonArray = this.JSONObject.getJSONArray(syllab);
+        Set<String> allWordsBySyllab = new HashSet<>();
+        for (Object words: jsonArray) {
+            allWordsBySyllab.add(words.toString());
+        }
+        return allWordsBySyllab;
     }
 
     public static void main(String[] args) throws IOException, URISyntaxException {
-        ParseJSON a = new ParseJSON("exemple.json");
+        ParseJSON a = new ParseJSON("filename.json");
     }
 }
