@@ -1,8 +1,0 @@
-#stackPane #anchorPaneHome {
-    -fx-content-display: flex;
-    justify-content: center;
-}
-
-.label {
-    -fx-font-size: 200px;
-}
