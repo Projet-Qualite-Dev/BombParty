@@ -16,7 +16,7 @@ import java.util.Set;
 public class ParseJSON {
     private String filename;
     private JSONObject JSONObject;
-    private Map<String, Set<String>> wordList = new HashMap<>();
+    private final Map<String, Set<String>> wordList = new HashMap<>();
 
     public ParseJSON(String filename) throws IOException, URISyntaxException {
         long startTime = System.nanoTime();
@@ -40,9 +40,5 @@ public class ParseJSON {
             allWordsBySyllab.add(words.toString());
         }
         return allWordsBySyllab;
-    }
-
-    public static void main(String[] args) throws IOException, URISyntaxException {
-        ParseJSON a = new ParseJSON("filename.json");
     }
 }
