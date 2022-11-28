@@ -41,8 +41,4 @@ public class ParseJSON {
         }
         return allWordsBySyllab;
     }
-
-    public static void main(String[] args) throws IOException, URISyntaxException {
-        ParseJSON a = new ParseJSON("wordList.json");
-    }
 }
