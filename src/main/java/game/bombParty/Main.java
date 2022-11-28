@@ -25,6 +25,7 @@ public class Main extends Application {
         Scene scene = new Scene(this.stackPaneMain);
         stage.setScene(scene);
         stage.setResizable(false);
+        stage.setTitle("Bomb Party");
         stage.show();
     }
 
