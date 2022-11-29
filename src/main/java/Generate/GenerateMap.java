@@ -14,7 +14,6 @@ public class GenerateMap {
     public GenerateMap(String filename) throws URISyntaxException, IOException {
         this.dictionary = new String(Files.readAllBytes(Paths.get(getClass().getResource("/Generate/" + filename).toURI())));
         this.wordList = new HashMap<>();
-        this.generateLettersAndWordList();
     }
 
 /*
@@ -37,6 +36,7 @@ public class GenerateMap {
 //    }
 
     public Map generateLettersAndWordList() {
+        System.out.println("--");
         long startTime = System.nanoTime();
         for (String currentWord: this.dictionary.split("\n")) {
             for (int i = 0; i < currentWord.length() - 2; ++i) {
