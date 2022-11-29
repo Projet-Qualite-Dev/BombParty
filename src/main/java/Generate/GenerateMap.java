@@ -48,7 +48,7 @@ public class GenerateMap {
                 }
             }
         }
-        System.out.println("Temps d'execution de la lecture du dictionnaire (en seconde)" + (System.nanoTime() - startTime) / Math.pow(10, 9));
+        System.out.println("Temps d'execution de la lecture du dictionnaire (en seconde) : " + (System.nanoTime() - startTime) / Math.pow(10, 9));
         return this.wordList;
     }
 
