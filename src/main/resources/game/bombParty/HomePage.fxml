@@ -8,7 +8,7 @@
     <children>
         <AnchorPane prefHeight="600.0" prefWidth="900.0">
             <children>
-                <Label alignment="CENTER" layoutX="174.0" layoutY="73.0" prefHeight="99.0" prefWidth="552.0" style="-fx-font-size: 5em;" text="Bomb Party" textAlignment="CENTER">
+                <Label alignment="CENTER" layoutX="174.0" layoutY="73.0" prefHeight="99.0" prefWidth="552.0" style="-fx-font-size: 5em;" text="Bomb Party" textAlignment="CENTER" textOverrun="CLIP">
                     <font>
                         <Font size="11.0" />
                     </font></Label>
