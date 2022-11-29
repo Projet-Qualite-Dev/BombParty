@@ -4,11 +4,10 @@ public class Life {
     private int maxLife;
     private int actualLife;
 
-    public Life(int maxLife) {
+    public Life(int maxLife, int actualLife) {
         this.maxLife = maxLife;
-        this.actualLife = this.maxLife;
+        this.actualLife = actualLife;
     }
-
 
     public int getActualLife() {
         return this.actualLife;
