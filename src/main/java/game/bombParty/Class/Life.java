@@ -11,14 +11,14 @@ public class Life {
 
 
     public int getActualLife() {
-        return actualLife;
+        return this.actualLife;
     }
 
     public void looseLife(){
-        --actualLife;
+        --this.actualLife;
     }
 
     public void winLife(){
-        ++actualLife;
+        ++this.actualLife;
     }
 }
