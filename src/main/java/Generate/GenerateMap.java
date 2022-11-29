@@ -7,11 +7,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
-public class GenerateJSON {
+public class GenerateMap {
     private String dictionary;
     private Map<String,Set<String>> wordList;
 
-    public GenerateJSON(String filename) throws URISyntaxException, IOException {
+    public GenerateMap(String filename) throws URISyntaxException, IOException {
         this.dictionary = new String(Files.readAllBytes(Paths.get(getClass().getResource("/Generate/" + filename).toURI())));
         this.wordList = new HashMap<>();
         this.generateLettersAndWordList();
@@ -36,7 +36,7 @@ public class GenerateJSON {
 //        System.out.println(System.nanoTime() - startTime);
 //    }
 
-    public void generateLettersAndWordList() {
+    public Map generateLettersAndWordList() {
         long startTime = System.nanoTime();
         for (String currentWord: this.dictionary.split("\n")) {
             for (int i = 0; i < currentWord.length() - 2; ++i) {
@@ -49,6 +49,7 @@ public class GenerateJSON {
             }
         }
         System.out.println("Temps d'execution de la lecture du dictionnaire (en seconde)" + (System.nanoTime() - startTime) / Math.pow(10, 9));
+        return this.wordList;
     }
 
     public void generateJSON() {
