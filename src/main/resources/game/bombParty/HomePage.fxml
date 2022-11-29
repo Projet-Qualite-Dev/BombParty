@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.bombParty.controller.HomePageController">
+<StackPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.bombParty.controller.HomePageController">
     <children>
         <AnchorPane prefHeight="600.0" prefWidth="900.0">
             <children>
-                <Label alignment="CENTER" layoutX="282.0" layoutY="63.0" prefHeight="99.0" prefWidth="337.0" text="Bomb Party" style="-fx-font-size: 5em;" textAlignment="CENTER">
+                <Label alignment="CENTER" layoutX="174.0" layoutY="73.0" prefHeight="99.0" prefWidth="552.0" style="-fx-font-size: 5em;" text="Bomb Party" textAlignment="CENTER">
                     <font>
                         <Font size="11.0" />
                     </font></Label>
