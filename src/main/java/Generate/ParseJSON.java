@@ -22,7 +22,7 @@ public class ParseJSON {
         String content = new String(Files.readAllBytes(Paths.get(getClass().getResource("/Generate/" + filename).toURI())));
         this.JSONObject = new JSONObject(content);
         this.JSONObjectToMap();
-        System.out.println(System.nanoTime() - startTime);
+        System.out.println("Temps d'execution de la lecture du JSON (en seconde) : " + (System.nanoTime() - startTime) / Math.pow(10, 9));
     }
 
     private void JSONObjectToMap() {
