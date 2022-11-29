@@ -7,9 +7,10 @@ import java.io.IOException;
 
 
 public interface JavaFXInitializer {
-    public StackPane initializeStackPane(StackPane page, String file) throws IOException;
 
-    public void initializeMainStackPane(StackPane mainPane, StackPane... panes);
+    public StackPane initializeStackPane(StackPane page, boolean isVisible, String file) throws IOException;
+
+    public StackPane initializeMainStackPane(StackPane pane, StackPane... panes);
 
     public void initializeStage(Stage stage, StackPane main, String title);
 }
