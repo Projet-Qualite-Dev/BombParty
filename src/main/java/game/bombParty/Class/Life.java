@@ -14,10 +14,10 @@ public class Life {
     }
 
     public void looseLife(){
-        --this.actualLife;
+        if(actualLife > 0) --this.actualLife;
     }
 
     public void winLife(){
-        ++this.actualLife;
+        if(actualLife < maxLife) ++this.actualLife;
     }
 }
