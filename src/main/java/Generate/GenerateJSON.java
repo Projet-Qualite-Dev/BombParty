@@ -11,16 +11,17 @@ public class GenerateJSON {
     private String dictionary;
     private Map<String,Set<String>> wordList;
 
-    public GenerateJSON(String dictionary) {
-        this.dictionary = dictionary;
+    public GenerateJSON(String filename) throws URISyntaxException, IOException {
+        this.dictionary = new String(Files.readAllBytes(Paths.get(getClass().getResource("/Generate/" + filename).toURI())));
         this.wordList = new HashMap<>();
+        this.generateLettersAndWordList();
     }
 
 /*
  * Méthode qui permet de générer une map mais n'est pas utilisable car on n'a pas les mots dans une variable.
  * Elle consiste à prendre caractère par caractère sans prendre en compte que c'est des mots. Si la syllabe contient un "\n", alors on passe à l'itération suivante.
 */
-//    public void GenerateLetters() {
+//    public void generateLetters() {
 //        long startTime = System.nanoTime();
 //        for (int i = 0; i < this.dictionary.length() - 2; i++) {
 //            String current = dictionary.substring(i, i + 3);
@@ -35,7 +36,7 @@ public class GenerateJSON {
 //        System.out.println(System.nanoTime() - startTime);
 //    }
 
-    public void GenerateLettersAndWordList() {
+    public void generateLettersAndWordList() {
         long startTime = System.nanoTime();
         for (String currentWord: this.dictionary.split("\n")) {
             for (int i = 0; i < currentWord.length() - 2; ++i) {
@@ -47,15 +48,7 @@ public class GenerateJSON {
                 }
             }
         }
-        System.out.println(System.nanoTime() - startTime);
-    }
-
-    public String getDictionary() {
-        return dictionary;
-    }
-
-    public Map<String, Set<String>> getWordList() {
-        return wordList;
+        System.out.println("Temps d'execution de la lecture du dictionnaire (en seconde)" + (System.nanoTime() - startTime) / Math.pow(10, 9));
     }
 
     public void generateJSON() {
@@ -83,5 +76,4 @@ public class GenerateJSON {
             System.out.println(e);
         }
     }
-
 }
