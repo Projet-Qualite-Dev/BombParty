@@ -2,38 +2,35 @@ package game.bombParty.Class;
 
 public class Time {
 
-    private int time;
-
-    private int ss, th, hd, cpt;
+    public int time;
+    private int seconde;
 
     public Time() {
-        this.reset();
+
     }
 
-    private void reset() {
-        this.ss = 0;
-        this.th = 0;
-        this.hd = 0;
-        this.cpt = this.time * 100;
-
+    public Time(int time) {
+        this.setTime(time);
     }
 
     public void update() {
-        --this.cpt;
-        this.ss = this.cpt % 10;
-        this.th = (this.cpt / 10) % 10;
-        this.hd = (this.cpt / 100) % 10;
+        --this.seconde;
+    }
+
+    public void reset() {
+        this.seconde = this.time;
     }
 
     public String getTime() {
-        return String.format("%02d:%d%d", this.ss, this.th, this.hd);
+        return String.valueOf(this.seconde);
     }
 
     public void setTime(int time) {
         this.time = time;
+        this.reset();
     }
 
     public boolean isFinished() {
-        return this.cpt == 0;
+        return this.seconde == 0;
     }
 }
