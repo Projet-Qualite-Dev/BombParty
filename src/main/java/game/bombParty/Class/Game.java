@@ -1,5 +1,6 @@
 package game.bombParty.Class;
 
+import game.bombParty.Main;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -14,15 +15,11 @@ import java.net.URISyntaxException;
 
 public class Game extends Thread {
 
-    private WordMap wordList;
     private Player player;
-    private Timeline timeline;
     private Label labelForSyllab, labelForTime;
-    private TextField textField;
 
     public Game(Player player) throws URISyntaxException, IOException {
         this.player = player;
-        this.wordList = new WordMap();
     }
 
     public void setTime(int time) {
@@ -46,34 +43,33 @@ public class Game extends Thread {
         this.labelForTime = labelForTime;
     }
 
-    public void updtateTime() {
-        this.player.getTime().update();
-    }
-
     @Override
     public void run() {
         Platform.runLater(() -> {
-            this.labelForSyllab.setText(this.wordList.getRandomSyllab(this.getDifficultyValue()));
+            this.labelForSyllab.setText(Main.getWordList().getRandomSyllab(this.getDifficultyValue()));
         });
-        this.timeline = new Timeline(new KeyFrame(Duration.millis(100), e -> this.update()));
-        this.timeline.setCycleCount(Animation.INDEFINITE);
-        while (this.isRoundTerminated()) {
-            this.timeline.play();
+        while (!this.isRoundTerminated()) {
             Platform.runLater(() -> {
                 this.labelForTime.setText(this.player.getTime().getTime());
             });
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                continue;
+            }
+            this.player.getTime().update();
         }
-    }
-
-    public void setTextField(TextField textField) {
-        this.textField = textField;
     }
 
     public boolean isRoundTerminated() {
         return this.player.getTime().isFinished();
     }
 
-    public void update() {
-        this.player.getTime().update();
+    public int getTime() {
+        return this.player.getTime().time;
+    }
+
+    public Player getPlayer() {
+        return this.player;
     }
 }
