@@ -6,15 +6,12 @@ import game.bombParty.Class.Player;
 import game.bombParty.Class.Time;
 import game.bombParty.JavaFXInitializer;
 import game.bombParty.Main;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
