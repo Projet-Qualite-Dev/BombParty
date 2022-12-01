@@ -22,8 +22,6 @@ public class HomePageController implements Initializable {
     Slider lifeSlider, timeSlider, difficultySlider;
     @FXML
     Label lifeLabel, timeLabel, difficultyLabel;
-    @FXML
-    ImageView gifView;
 
 
     @Override
