@@ -1,12 +1,10 @@
 package game.bombParty.Class;
 
 public class Life {
-    private int maxLife;
     private int actualLife;
 
-    public Life(int maxLife, int actualLife) {
-        this.maxLife = maxLife;
-        this.actualLife = actualLife;
+    public Life() {
+
     }
 
     public int getActualLife() {
@@ -17,7 +15,9 @@ public class Life {
         if(actualLife > 0) --this.actualLife;
     }
 
-    public void winLife(){
-        if(actualLife < maxLife) ++this.actualLife;
+    public void winLife(){++this.actualLife;}
+
+    public void setLife(int life) {
+        this.actualLife = life;
     }
 }
