@@ -36,7 +36,6 @@ public class GenerateMap {
 //    }
 
     public Map generateLettersAndWordList() {
-        System.out.println("--");
         long startTime = System.nanoTime();
         for (String currentWord: this.dictionary.split("\n")) {
             for (int i = 0; i < currentWord.length() - 2; ++i) {
