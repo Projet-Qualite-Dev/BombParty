@@ -16,6 +16,7 @@ public class Main extends Application implements JavaFXInitializer{
     private static StackPane gamePage;
     private static StackPane mainPane = new StackPane();
     private static Game game;
+    private static WordMap wordList;
 
     @Override
     public void start(Stage stage) throws IOException, URISyntaxException {
@@ -24,6 +25,7 @@ public class Main extends Application implements JavaFXInitializer{
         JavaFXInitializer.initializeStage(stage, mainPane, "Bomb Party");
 
         game = new Game(new Player(new Life(), new Time(), new Difficulty()));
+        wordList = new WordMap();
     }
     public static void main(String[] args) {
         launch();
@@ -48,5 +50,18 @@ public class Main extends Application implements JavaFXInitializer{
     public static Game getGame() {
         return game;
     }
+
+    public static void setGame(Game game) {
+        Main.game = game;
+    }
+
+    public static WordMap getWordList() {
+        return wordList;
+    }
+
+    public boolean isValueExistWithMapKey(String key, String value) {
+        return this.wordList.containsValueByKey(key, value);
+    }
     /* TODO Remettre en forme */
+    /* TODO Problèmes : le temps ne change pas, les threads j'arrive pas */
 }
