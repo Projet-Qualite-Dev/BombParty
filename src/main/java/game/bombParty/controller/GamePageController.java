@@ -1,17 +1,12 @@
 package game.bombParty.controller;
 
-import game.bombParty.Chrono;
-import game.bombParty.Class.Time;
-import game.bombParty.Class.WordMap;
+import game.bombParty.Class.Game;
 import game.bombParty.Main;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.util.Duration;
+import javafx.scene.input.KeyCode;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -24,28 +19,36 @@ public class GamePageController implements Initializable {
     public Label syllabLabel, secondLabel;
     @FXML
     public TextField textField;
-    private Timeline timeline;
-    private Thread gameStart;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.timeline = new Timeline(new KeyFrame(Duration.millis(10), e -> Main.getGame().updtateTime()));
-        this.timeline.setCycleCount(Animation.INDEFINITE);
+        this.textField.setOnKeyPressed(event -> {
+            if (event.getCode().equals(KeyCode.ENTER) && !Main.getGame().isRoundTerminated()) {
+                if (Main.getWordList().containsValueByKey(this.syllabLabel.getText(), this.textField.getText().toUpperCase())) {
+                    try {
+                        Main.getGame().interrupt();
+                        Main.setGame(new Game(Main.getGame().getPlayer()));
+                        this.startGame();
+                    } catch (URISyntaxException | IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                this.textField.setText("");
+            }
+        });
     }
 
-    public void returnMenu() {
+    public void returnMenu() throws URISyntaxException, IOException {
         Main.getMainPane().getChildren().setAll(Main.getHomePage());
         Main.getHomePage().setVisible(true);
+        Main.setGame(new Game(Main.getGame().getPlayer()));
     }
 
     @FXML
     public void startGame() {
-        System.out.println(Main.getGame().getState());
         if (Main.getGame().getState() != Thread.State.RUNNABLE) {
             Main.getGame().setLabels(this.syllabLabel, this.secondLabel);
-            Main.getGame().setTextField(this.textField);
             Main.getGame().start();
-            System.out.println(Main.getGame().getState());
         }
     }
 }
