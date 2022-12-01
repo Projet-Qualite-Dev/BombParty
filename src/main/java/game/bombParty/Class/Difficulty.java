@@ -4,7 +4,7 @@ public class Difficulty {
 
     private int valueOfDifficulty;
     private static final int valueOfEasy = 500;
-    private static final int valueOfMedium = 200;
+    private static final int valueOfMedium = 150;
     private static final int valueOfHard = 50;
 
     public Difficulty() {
