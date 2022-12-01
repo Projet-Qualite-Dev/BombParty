@@ -22,10 +22,10 @@ public class WordMap {
         for (String key: this.wordList.keySet()) {
             if (index == numberOfSyllab) {
                 int hashCode = Character.valueOf(key.toCharArray()[2]).hashCode(); /* Résout un bug quand le dernier caratère de la syllabe est un espace vide */
-                if (this.wordList.get(key).size() < difficulty && hashCode != 13) {
+                if (this.wordList.get(key).size() > difficulty && hashCode != 13) {
                     return key;
                 } else {
-                    getRandomSyllab(difficulty);
+                    return getRandomSyllab(difficulty);
                 }
             }
             ++index;
