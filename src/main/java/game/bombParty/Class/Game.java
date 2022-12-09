@@ -1,73 +1,66 @@
 package game.bombParty.Class;
 
-import game.bombParty.Main;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.application.Platform;
-import javafx.beans.binding.Bindings;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.util.Duration;
+import javafx.beans.property.SimpleStringProperty;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-public class Game extends Thread {
+public class Game {
 
     private Player player;
-    private Label labelForSyllab, labelForTime;
+    private WordMap wordList;
+    private Difficulty difficulty;
+    private int Time;
+    private boolean isStarted;
 
-    public Game(Player player) throws URISyntaxException, IOException {
+    public Game(Player player, int difficulty) throws URISyntaxException, IOException {
         this.player = player;
-        this.player.getTime().reset();
+        this.wordList = new WordMap();
+        this.difficulty = new Difficulty(difficulty);
+        this.isStarted = false;
     }
 
-    public void setTime(int time) {
-        this.player.getTime().setTime(time);
+    private int getDifficulty() {
+        return this.difficulty.getValue();
     }
 
-    public void setLife(int life) {
-        this.player.getLife().setLife(life);
+    public String getRandomSyllab() {
+        return this.wordList.getRandomSyllab(this.getDifficulty());
     }
 
-    public int getDifficultyValue() {
-        return this.player.getDifficulty().getValue();
+    public boolean containsValue(String key, String value) {
+        return this.wordList.containsValueByKey(key, value);
     }
 
-    public void setDifficulty(int difficulty) {
-        this.player.getDifficulty().setDifficulty(difficulty);
+    public boolean isStarted() {
+        return this.isStarted;
     }
 
-    public void setLabels(Label labelForSyllab, Label labelForTime) {
-        this.labelForSyllab = labelForSyllab;
-        this.labelForTime = labelForTime;
+    public void start() {
+        this.isStarted = true;
     }
 
-    @Override
-    public void run() {
-        Platform.runLater(() -> {
-            this.labelForSyllab.setText(Main.getWordList().getRandomSyllab(this.getDifficultyValue()));
-        });
-        while (!this.isRoundTerminated()) {
-            Platform.runLater(() -> {
-                this.labelForTime.setText(this.player.getTime().getTime());
-            });
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                continue;
-            }
-            if (!this.isRoundTerminated())
-                this.player.getTime().update();
-        }
+    public void stop() {
+        this.isStarted = false;
     }
 
-    public boolean isRoundTerminated() {
-        return this.player.getTime().isFinished();
+    public void looseLife() {
+        this.player.looseLife();
     }
 
-    public Player getPlayer() {
-        return this.player;
+    public void winLife() {
+        this.player.winLife();
+    }
+
+    public SimpleStringProperty getStringLife() {
+        return this.player.getStringLife();
+    }
+
+    public int getActualLife() {
+        return this.player.getActualLife();
+    }
+
+    public Life getLife() {
+        return this.player.getLife();
     }
 }
