@@ -11,6 +11,7 @@ public class WordMap {
     private Map<String, Set<String>> wordList;
     private Random random;
 
+
     public WordMap() throws URISyntaxException, IOException {
         this.wordList = new GenerateMap("dictionary.txt").generateLettersAndWordList();
         this.random = new Random();
@@ -34,23 +35,6 @@ public class WordMap {
     }
 
     public boolean containsValueByKey(String key, String value) {
-//        for (String currentValue: this.wordList.get(key)) {
-//            if (Objects.equals(currentValue, value)) {
-//                return true;
-//            }
-//        }
-        return true;
-    }
-
-    public Object getKeyByIndex(int index) {
-        return null;
-    }
-
-    public Object findValueByKey(Object key) {
-        return null;
-    }
-
-    public Map<String, Set<String>> getWordList() {
-        return wordList;
+        return this.wordList.get(key).contains(value);
     }
 }

@@ -7,8 +7,8 @@ public class Difficulty {
     private static final int valueOfMedium = 150;
     private static final int valueOfHard = 50;
 
-    public Difficulty() {
-
+    public Difficulty(int difficulty) {
+        this.valueOfDifficulty = difficulty;
     } /* TODO Savoir si on doit faire des throws pour les erreurs comme valueOfDifficulty est pas 1 ou 2 ou 3 */
 
     public int getValue() {
