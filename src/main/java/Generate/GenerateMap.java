@@ -37,7 +37,7 @@ public class GenerateMap {
 
     public Map generateLettersAndWordList() {
         long startTime = System.nanoTime();
-        for (String currentWord: this.dictionary.split("\n")) {
+        for (String currentWord: this.dictionary.split(System.lineSeparator())) {
             for (int i = 0; i < currentWord.length() - 2; ++i) {
                 String currentSyllab = currentWord.substring(i, i + 3);
                 if (this.wordList.containsKey(currentSyllab)) {
