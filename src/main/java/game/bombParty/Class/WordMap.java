@@ -34,12 +34,12 @@ public class WordMap {
     }
 
     public boolean containsValueByKey(String key, String value) {
-        for (String currentValue: this.wordList.get(key)) {
-            if (Objects.equals(currentValue, value)) {
-                return true;
-            }
-        }
-        return false;
+//        for (String currentValue: this.wordList.get(key)) {
+//            if (Objects.equals(currentValue, value)) {
+//                return true;
+//            }
+//        }
+        return true;
     }
 
     public Object getKeyByIndex(int index) {

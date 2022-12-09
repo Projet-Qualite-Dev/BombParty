@@ -25,13 +25,13 @@ public class GamePageController implements Initializable {
         this.textField.setOnKeyPressed(event -> {
             if (event.getCode().equals(KeyCode.ENTER) && !Main.getGame().isRoundTerminated()) {
                 if (Main.getWordList().containsValueByKey(this.syllabLabel.getText(), this.textField.getText().toUpperCase())) {
+                    Main.getGame().getPlayer().getTime().setTime(0);
                     try {
-                        Main.getGame().interrupt();
                         Main.setGame(new Game(Main.getGame().getPlayer()));
-                        this.startGame();
                     } catch (URISyntaxException | IOException e) {
                         throw new RuntimeException(e);
                     }
+                    this.startGame();
                 }
                 this.textField.setText("");
             }
@@ -41,7 +41,11 @@ public class GamePageController implements Initializable {
     public void returnMenu() throws URISyntaxException, IOException {
         Main.getMainPane().getChildren().setAll(Main.getHomePage());
         Main.getHomePage().setVisible(true);
+        if (Main.getGame().getState() == Thread.State.TIMED_WAITING) {
+            Main.getGame().getPlayer().getTime().setTime(0);
+        }
         Main.setGame(new Game(Main.getGame().getPlayer()));
+        /* TODO Arreter le thread */
     }
 
     @FXML

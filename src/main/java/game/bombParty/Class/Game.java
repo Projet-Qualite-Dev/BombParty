@@ -20,6 +20,7 @@ public class Game extends Thread {
 
     public Game(Player player) throws URISyntaxException, IOException {
         this.player = player;
+        this.player.getTime().reset();
     }
 
     public void setTime(int time) {
@@ -57,16 +58,13 @@ public class Game extends Thread {
             } catch (InterruptedException e) {
                 continue;
             }
-            this.player.getTime().update();
+            if (!this.isRoundTerminated())
+                this.player.getTime().update();
         }
     }
 
     public boolean isRoundTerminated() {
         return this.player.getTime().isFinished();
-    }
-
-    public int getTime() {
-        return this.player.getTime().time;
     }
 
     public Player getPlayer() {
