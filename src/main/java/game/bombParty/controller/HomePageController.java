@@ -9,9 +9,9 @@ import javafx.stage.Stage;
 
 public final class HomePageController extends AnchorPane implements JavaFXControllable {
     @FXML
-    Slider lifeSlider, timeSlider, difficultySlider;
+    private Slider timeSlider, difficultySlider;
     @FXML
-    Label lifeLabel, timeLabel, difficultyLabel, scoreLabel;
+    private Label lifeLabel, timeLabel, difficultyLabel, scoreLabel;
     private Stage primaryStage;
 
     public HomePageController(Stage primaryStage) {
@@ -27,7 +27,6 @@ public final class HomePageController extends AnchorPane implements JavaFXContro
 
     @FXML
     public void initialize() {
-        this.initializeSlider(this.lifeSlider, 1, 4, this.lifeLabel);
         this.initializeSlider(this.timeSlider, 5, 12, this.timeLabel);
         this.initializeSlider(this.difficultySlider, 1, 3, this.difficultyLabel);
     }
