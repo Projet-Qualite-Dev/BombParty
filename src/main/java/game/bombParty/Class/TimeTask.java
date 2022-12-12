@@ -41,7 +41,6 @@ public final class TimeTask extends TimerTask {
      */
     @Override
     public void run() {
-        System.out.println("onf");
         if (this.millisecond == 0) {
             this.second--;
             this.millisecond = 9;
