@@ -83,22 +83,25 @@ public final class WordMap {
      * Algorithme de tri par sélection qui tri des chaines de caractères par rapport à leur taille. Cela consiste à déterminer le plus petit élément, puis le deuxième petit élément, et ainsi de suite.
      * On le fait dans une liste de valeurs dont la clef est "ECT". On ne pas le faire dans toutes les listes de mots car la Map est beaucoup trop grande.
      * On ne met pas non plus le résultat dans la Map car le Set<String> range de nouveau à l'ajout. Notre tri est donc supprimé.
+     * On parcours la liste avec une ListIterator qui permet d'avoir l'index et l'Iterator.
      */
     public void sortWordList() {
         List<String> listOfWords = new ArrayList<>();
         listOfWords.addAll(this.wordList.get("ECT"));
-        for (int i = 0; i < listOfWords.size(); i++){
-            int min = i;
-            for (int j = i; j < listOfWords.size(); j++){
+        ListIterator<String> listIterator = listOfWords.listIterator();
+        while (listIterator.hasNext()){
+            int min = listIterator.nextIndex();
+            for (int j = listIterator.nextIndex(); j < listOfWords.size(); j++){
                 if (listOfWords.get(j).length() <listOfWords.get(min).length()){
                     min = j;
                 }
             }
-            if (min != i){
-                String temporary = listOfWords.get(i);
-                listOfWords.set(i, listOfWords.get(min));
+            if (min != listIterator.nextIndex()){
+                String temporary = listOfWords.get(listIterator.nextIndex());
+                listOfWords.set(listIterator.nextIndex(), listOfWords.get(min));
                 listOfWords.set(min, temporary);
             }
+            listIterator.next();
         }
         System.out.println(this.wordList.get("ECT"));
         System.out.println(listOfWords);
