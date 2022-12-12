@@ -4,23 +4,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<fx:root prefHeight="600.0" prefWidth="900.0" type="javafx.scene.layout.StackPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
-    <AnchorPane prefHeight="600.0" prefWidth="900.0">
-        <Label alignment="CENTER" layoutX="174.0" layoutY="73.0" prefHeight="99.0" prefWidth="552.0" style="-fx-font-size: 5em;" text="Bomb Party" textAlignment="CENTER">
-            <font>
-                <Font size="11.0" />
-            </font>
-        </Label>
-        <Label alignment="CENTER" layoutX="282.0" layoutY="219.0" prefHeight="49.0" prefWidth="148.0" text="Nombre de vie au départ : " />
-        <Slider fx:id="lifeSlider" layoutX="438.0" layoutY="236.0" prefHeight="14.0" prefWidth="181.0" />
-        <Label fx:id="lifeLabel" alignment="CENTER" layoutX="627.0" layoutY="229.0" prefHeight="29.0" prefWidth="44.0" />
-        <Label alignment="CENTER" layoutX="282.0" layoutY="268.0" prefHeight="29.0" prefWidth="148.0" text="Temps de réponse (en s) :" />
-        <Slider fx:id="timeSlider" layoutX="438.0" layoutY="276.0" prefHeight="14.0" prefWidth="181.0" />
-        <Label fx:id="timeLabel" alignment="CENTER" layoutX="627.0" layoutY="269.0" prefHeight="29.0" prefWidth="44.0" />
-        <Label alignment="CENTER" layoutX="282.0" layoutY="309.0" prefHeight="29.0" prefWidth="148.0" text="Dificulté :" />
-        <Slider fx:id="difficultySlider" layoutX="438.0" layoutY="317.0" prefHeight="14.0" prefWidth="181.0" />
-        <Label fx:id="difficultyLabel" alignment="CENTER" layoutX="627.0" layoutY="309.0" prefHeight="29.0" prefWidth="44.0" />
-        <Button layoutX="377.0" layoutY="386.0" mnemonicParsing="false" onAction="#launchGamePage" prefHeight="29.0" prefWidth="148.0" text="Lancer la partie" />
-        <Label fx:id="scoreLabel" alignment="CENTER" layoutX="304.0" layoutY="458.0" prefHeight="29.0" prefWidth="295.0" />
-    </AnchorPane>
+<fx:root prefHeight="600.0" prefWidth="900.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <Label alignment="CENTER" layoutX="174.0" layoutY="73.0" prefHeight="99.0" prefWidth="552.0" style="-fx-font-size: 5em;" text="Bomb Party" textAlignment="CENTER">
+        <font>
+            <Font size="11.0" />
+        </font>
+    </Label>
+    <Label alignment="CENTER" layoutX="282.0" layoutY="219.0" prefHeight="49.0" prefWidth="148.0" text="Nombre de vie au départ : " />
+    <Slider fx:id="lifeSlider" layoutX="438.0" layoutY="236.0" prefHeight="14.0" prefWidth="181.0" />
+    <Label fx:id="lifeLabel" alignment="CENTER" layoutX="627.0" layoutY="229.0" prefHeight="29.0" prefWidth="44.0" />
+    <Label alignment="CENTER" layoutX="282.0" layoutY="268.0" prefHeight="29.0" prefWidth="148.0" text="Temps de réponse (en s) :" />
+    <Slider fx:id="timeSlider" layoutX="438.0" layoutY="276.0" prefHeight="14.0" prefWidth="181.0" />
+    <Label fx:id="timeLabel" alignment="CENTER" layoutX="627.0" layoutY="269.0" prefHeight="29.0" prefWidth="44.0" />
+    <Label alignment="CENTER" layoutX="282.0" layoutY="309.0" prefHeight="29.0" prefWidth="148.0" text="Dificulté :" />
+    <Slider fx:id="difficultySlider" layoutX="438.0" layoutY="317.0" prefHeight="14.0" prefWidth="181.0" />
+    <Label fx:id="difficultyLabel" alignment="CENTER" layoutX="627.0" layoutY="309.0" prefHeight="29.0" prefWidth="44.0" />
+    <Button layoutX="377.0" layoutY="386.0" mnemonicParsing="false" onAction="#launchGamePage" prefHeight="29.0" prefWidth="148.0" text="Lancer la partie" />
+    <Label fx:id="scoreLabel" alignment="CENTER" layoutX="304.0" layoutY="458.0" prefHeight="29.0" prefWidth="295.0" />
 </fx:root>
