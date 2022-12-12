@@ -11,7 +11,8 @@
     <Label fx:id="secondLabel" alignment="CENTER" layoutX="406.0" layoutY="342.0" prefHeight="36.0" prefWidth="88.0" />
     <Button layoutX="286.0" layoutY="390.0" mnemonicParsing="false" onAction="#startGame" prefHeight="36.0" prefWidth="100.0" text="Commencer" />
     <Button layoutX="405.0" layoutY="390.0" mnemonicParsing="false" onAction="#returnMenu" prefHeight="36.0" prefWidth="100.0" text="Arrêter" />
-   <Button layoutX="523.0" layoutY="390.0" mnemonicParsing="false" onAction="#retry" prefHeight="36.0" prefWidth="100.0" text="Réessayer" />
+   <Button layoutX="523.0" layoutY="390.0" mnemonicParsing="false" onAction="#retryGame" prefHeight="36.0" prefWidth="100.0" text="Réessayer" />
     <Label fx:id="lifeLabel" alignment="CENTER" layoutX="490.0" layoutY="458.0" prefHeight="29.0" prefWidth="50.0" />
     <Label alignment="CENTER" layoutX="350.0" layoutY="458.0" prefHeight="29.0" prefWidth="150.0" text="Votre nombre de vie(s) :" />
+   <GridPane layoutX="43.0" layoutY="164.0" />
 </fx:root>
