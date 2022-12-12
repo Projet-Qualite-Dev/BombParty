@@ -22,9 +22,10 @@ public final class WordMap {
      * @throws URISyntaxException : Dans le cas où le nom du fichier n'est pas bon.
      * @throws IOException : Dans le cas où le fichier n'existe pas.
      */
-    public WordMap() throws URISyntaxException, IOException {
+    public WordMap(boolean isSorted) throws URISyntaxException, IOException {
         this.wordList = new GenerateMap("dictionary.txt").generateLettersAndWordList();
         this.random = new Random();
+        if (isSorted) this.sortWordList();
     }
 
     /**
@@ -58,5 +59,30 @@ public final class WordMap {
      */
     public boolean containsValueByKey(String key, String value) {
         return this.wordList.get(key).contains(value);
+    }
+
+    /**
+     * Algorithme de tri par sélection qui tri des chaines de caractères par rapport à leur taille. Cela consiste à déterminer le plus petit élément, puis le deuxième petit élément, et ainsi de suite.
+     * On le fait dans une liste de valeurs dont la clef est "ECT". On ne pas le faire dans toutes les listes de mots car la Map est beaucoup trop grande.
+     * On ne met pas non plus le résultat dans la Map car le Set<String> range de nouveau à l'ajout. Notre tri est donc supprimé.
+     */
+    public void sortWordList() {
+        List<String> listOfWords = new ArrayList<>();
+        listOfWords.addAll(this.wordList.get("ECT"));
+        for (int i = 0; i < listOfWords.size(); i++){
+            int min = i;
+            for (int j = i; j < listOfWords.size(); j++){
+                if (listOfWords.get(j).length() <listOfWords.get(min).length()){
+                    min = j;
+                }
+            }
+            if (min != i){
+                String temporary = listOfWords.get(i);
+                listOfWords.set(i, listOfWords.get(min));
+                listOfWords.set(min, temporary);
+            }
+        }
+        System.out.println(this.wordList.get("ECT"));
+        System.out.println(listOfWords);
     }
 }
