@@ -12,7 +12,7 @@ public final class HomePageController extends AnchorPane implements JavaFXContro
     @FXML
     private Slider timeSlider, difficultySlider;
     @FXML
-    private Label lifeLabel, timeLabel, difficultyLabel, scoreLabel;
+    private Label lifeLabel, timeLabel, difficultyLabel, scoreLabel, textScoreLabel;
     private Stage primaryStage;
 
     public HomePageController(Stage primaryStage) {
@@ -20,10 +20,11 @@ public final class HomePageController extends AnchorPane implements JavaFXContro
         this.loadFXMLFile("Home");
     }
 
-    public HomePageController(Stage primaryStage, String scrore) {
+    public HomePageController(Stage primaryStage, String score) {
         this.primaryStage = primaryStage;
         this.loadFXMLFile("Home");
-        this.scoreLabel.setText(scrore);
+        this.textScoreLabel.setText("Point(s) de la partie :");
+        this.scoreLabel.setText(score);
     }
 
     @FXML

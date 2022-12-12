@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<fx:root prefHeight="600.0" prefWidth="900.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="600.0" prefWidth="900.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <Label alignment="CENTER" layoutX="174.0" layoutY="73.0" prefHeight="99.0" prefWidth="552.0" style="-fx-font-size: 5em;" text="Bomb Party" textAlignment="CENTER">
         <font>
             <Font size="11.0" />
@@ -17,5 +17,6 @@
     <Slider fx:id="difficultySlider" layoutX="438.0" layoutY="317.0" prefHeight="14.0" prefWidth="181.0" />
     <Label fx:id="difficultyLabel" alignment="CENTER" layoutX="627.0" layoutY="309.0" prefHeight="29.0" prefWidth="44.0" />
     <Button layoutX="377.0" layoutY="386.0" mnemonicParsing="false" onAction="#launchGamePage" prefHeight="29.0" prefWidth="148.0" text="Lancer la partie" />
-    <Label fx:id="scoreLabel" alignment="CENTER" layoutX="304.0" layoutY="458.0" prefHeight="29.0" prefWidth="295.0" />
+   <Label fx:id="textScoreLabel" alignment="CENTER" layoutX="371.0" layoutY="458.0" prefHeight="29.0" prefWidth="119.0" />
+    <Label fx:id="scoreLabel" alignment="CENTER" layoutX="490.0" layoutY="458.0" prefHeight="29.0" prefWidth="25.0" />
 </fx:root>
