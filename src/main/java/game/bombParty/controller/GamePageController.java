@@ -20,20 +20,25 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
     @FXML
     private TextField textField;
     @FXML
-    GridPane letterGrid;
-    private Timer timer;
-    private static Game game;
-    private static int point = 0;
-    private final int time;
+    private GridPane letterGrid;
+
     private static Stage primaryStage;
+    private static Game game;
+    private Timer timer;
+    private final int time;
+    private static int point;
+    private final int diffictulty;
 
     public GamePageController(Stage primaryStage, int time, int difficulty) throws Exception {
-        game = new Game(new Player(new Life()), difficulty);
-        this.loadFXMLFile("Game");
-        this.timer = new Timer();
-        this.time = time;
         GamePageController.primaryStage = primaryStage;
+        this.time = time;
+        this.diffictulty = difficulty;
+
+        point = 0;
+        this.loadFXMLFile("Game");
+        game = new Game(new Player(new Life()), difficulty);
         this.lifeLabel.textProperty().bind(game.getStringLife());
+        this.timer = new Timer();
     }
 
     @FXML
@@ -64,7 +69,13 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
 
     public static void quit() {
         primaryStage.setScene(new Scene(new HomePageController(primaryStage, String.valueOf(point))));
-    } /* TODO Voir pour changer ça */
+    }
+
+    @FXML
+    public void retry() throws Exception {
+        this.timer.cancel();
+        primaryStage.setScene(new Scene(new GamePageController(primaryStage, this.time, this.diffictulty)));
+    }
 
     @FXML
     public void startGame() {
@@ -84,5 +95,4 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
         this.timer = new Timer();
         this.timer.scheduleAtFixedRate(new TimeTask(this.time, this.secondLabel, this.syllableLabel, game.getLife()), 0, 100);
     }
-    /* TODO Rajouter le temps d'execution faire un attribut dans game ou wordMap*/
 }
