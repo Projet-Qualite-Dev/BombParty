@@ -20,6 +20,7 @@ import java.util.Set;
 public final class ParseJSON {
     private final JSONObject JSON_OBJECT;
     private final Map<String, Set<String>> WORD_LIST = new HashMap<>();
+    private static String executeTime = "";
 
     /**
      * Le constructeur de la class ParseJSON.
@@ -33,16 +34,28 @@ public final class ParseJSON {
         String content = new String(Files.readAllBytes(Paths.get(getClass().getResource("/Generate/" + filename).toURI())));
         this.JSON_OBJECT = new JSONObject(content);
         this.JSONObjectToMap();
-        System.out.println("Temps d'execution de la lecture du JSON (en seconde) : " + (System.nanoTime() - startTime) / Math.pow(10, 9));
+        executeTime = "Temps d'execution de la lecture du JSON (en seconde) : " + (System.nanoTime() - startTime) / Math.pow(10, 9);
+    }
+
+    /**
+     * Avoir le temps d'execution.
+     *
+     * @return String : Le temps d'execution.
+     */
+    public static String getExecuteTime() {
+        return executeTime;
     }
 
     /**
      * Permet de mettre transformer le JSONObject en Map<String, Set<String>>.
+     *
+     * @return Map<String, Set<String>> : Map contenant les syllabes et la liste de mots contenant les syllabes.
      */
-    private void JSONObjectToMap() {
+    public Map JSONObjectToMap() {
         for (String key: this.JSON_OBJECT.keySet()) {
             this.WORD_LIST.put(key, getAllWordBySyllab(key));
         }
+        return this.WORD_LIST;
     }
 
     /**

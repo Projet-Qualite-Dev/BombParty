@@ -1,15 +1,13 @@
 package game.bombParty.controller;
 
-import game.bombParty.Class.Game;
-import game.bombParty.Class.Life;
-import game.bombParty.Class.Player;
-import game.bombParty.Class.TimeTask;
+import game.bombParty.Class.*;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.util.Timer;
@@ -17,9 +15,11 @@ import java.util.Timer;
 public final class GamePageController extends AnchorPane implements JavaFXControllable {
 
     @FXML
-    public Label syllableLabel, secondLabel, lifeLabel;
+    private Label syllableLabel, secondLabel, lifeLabel, executeTimeLabel;
     @FXML
-    public TextField textField;
+    private TextField textField;
+    @FXML
+    GridPane letterGrid;
     private Timer timer;
     private static Game game;
     private static int point = 0;
@@ -49,6 +49,7 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
                 this.textField.setText("");
             }
         });
+        this.executeTimeLabel.setText(WordMap.getExecuteTime());
     }
 
     @FXML

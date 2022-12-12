@@ -19,6 +19,7 @@ import java.util.*;
 public final class GenerateMap {
     private final String DICTIONARY;
     private final Map<String,Set<String>> WORD_LIST;
+    private static String executeTime = "";
 
     /**
      * Le constructeur de la class GenerateMap.
@@ -30,6 +31,15 @@ public final class GenerateMap {
     public GenerateMap(String filename) throws URISyntaxException, IOException {
         this.DICTIONARY = new String(Files.readAllBytes(Paths.get(getClass().getResource("/Generate/" + filename).toURI())));
         this.WORD_LIST = new HashMap<>();
+    }
+
+    /**
+     * Avoir le temps d'execution.
+     *
+     * @return String : Le temps d'execution.
+     */
+    public static String getExecuteTime() {
+        return executeTime;
     }
 
     /**
@@ -67,7 +77,7 @@ public final class GenerateMap {
                 }
             }
         }
-        System.out.println("Temps d'execution de la lecture du dictionnaire (en seconde) : " + (System.nanoTime() - startTime) / Math.pow(10, 9));
+        this.executeTime = "Temps d'execution de la lecture du dictionnaire (en seconde) : " + (System.nanoTime() - startTime) / Math.pow(10, 9);
         return this.WORD_LIST;
     }
 

@@ -5,6 +5,7 @@
 package game.bombParty.Class;
 
 import Generate.GenerateMap;
+import Generate.ParseJSON;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -13,7 +14,8 @@ import java.util.Map;
 
 public final class WordMap {
     private Map<String, Set<String>> wordList;
-    private Random random;
+    private final Random random;
+    private static String executeTime;
 
 
     /**
@@ -23,9 +25,25 @@ public final class WordMap {
      * @throws IOException : Dans le cas où le fichier n'existe pas.
      */
     public WordMap(boolean isSorted) throws URISyntaxException, IOException {
+        // Pour générer la Map à l'aide du dictionnaire
         this.wordList = new GenerateMap("dictionary.txt").generateLettersAndWordList();
+        this.executeTime = GenerateMap.getExecuteTime();
+
+        // Pour générer la Map à l'aide du JSON
+//        this.wordList = new ParseJSON("wordList.json").JSONObjectToMap();
+//        this.executeTime = ParseJSON.getExecuteTime();
+
         this.random = new Random();
         if (isSorted) this.sortWordList();
+    }
+
+    /**
+     * Avoir le temps d'execution.
+     *
+     * @return String : Le temps d'execution.
+     */
+    public static String getExecuteTime() {
+        return executeTime;
     }
 
     /**
