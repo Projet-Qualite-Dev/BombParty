@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -39,10 +40,13 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
     public void initialize() {
         this.textField.setOnKeyPressed(event -> {
             if (event.getCode().equals(KeyCode.ENTER)) {
-                if (game.containsValue(this.syllableLabel.getText(), this.textField.getText().toUpperCase())) point++;
-                else {
+                if (game.containsValue(this.syllableLabel.getText(), this.textField.getText().toUpperCase())) {
+                    point++;
+                    this.textField.setStyle("-fx-border-color: #71C562; -fx-border-width: 4px;");
+                } else {
                     if (game.getActualLife() == 0) this.returnMenu();
                     else game.looseLife();
+                    this.textField.setStyle("-fx-border-color: #CD5C5C; -fx-border-width: 4px;");
                 }
                 this.timer.cancel();
                 this.update();
