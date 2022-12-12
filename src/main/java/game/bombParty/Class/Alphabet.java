@@ -10,7 +10,7 @@ public enum Alphabet {
     G('G'),
     H('H'),
     I('I'),
-    J('I'),
+    J('J'),
     K('K'),
     L('L'),
     M('M'),
@@ -20,6 +20,7 @@ public enum Alphabet {
     Q('Q'),
     R('R'),
     S('S'),
+    T('T'),
     U('U'),
     V('V'),
     W('W'),
@@ -32,7 +33,7 @@ public enum Alphabet {
         this.value = value;
     }
 
-    public char getValue() {
-        return this.value;
+    public String getValue() {
+        return String.valueOf(this.value);
     }
 }
