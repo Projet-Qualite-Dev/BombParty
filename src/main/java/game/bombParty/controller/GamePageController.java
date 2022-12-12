@@ -9,12 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.util.Timer;
 
-public final class GamePageController extends StackPane implements JavaFXControllable {
+public final class GamePageController extends AnchorPane implements JavaFXControllable {
 
     @FXML
     public Label syllableLabel, secondLabel, lifeLabel;

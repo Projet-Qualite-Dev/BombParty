@@ -4,10 +4,10 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public final class HomePageController extends StackPane implements JavaFXControllable {
+public final class HomePageController extends AnchorPane implements JavaFXControllable {
     @FXML
     Slider lifeSlider, timeSlider, difficultySlider;
     @FXML
