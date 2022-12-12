@@ -12,7 +12,7 @@ public final class Game {
 
     public Game(Player player, int difficulty) throws Exception {
         this.player = player;
-        this.wordList = new WordMap();
+        this.wordList = new WordMap(false);
         this.difficulty = new Difficulty(difficulty);
         this.isStarted = false;
     }
