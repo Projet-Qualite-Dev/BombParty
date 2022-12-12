@@ -2,10 +2,7 @@ package game.bombParty.Class;
 
 import javafx.beans.property.SimpleStringProperty;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-
-public class Game {
+public final class Game {
 
     private Player player;
     private WordMap wordList;
@@ -13,7 +10,7 @@ public class Game {
     private int Time;
     private boolean isStarted;
 
-    public Game(Player player, int difficulty) throws URISyntaxException, IOException {
+    public Game(Player player, int difficulty) throws Exception {
         this.player = player;
         this.wordList = new WordMap();
         this.difficulty = new Difficulty(difficulty);
@@ -24,8 +21,8 @@ public class Game {
         return this.difficulty.getValue();
     }
 
-    public String getRandomSyllab() {
-        return this.wordList.getRandomSyllab(this.getDifficulty());
+    public String getRandomSyllable() {
+        return this.wordList.getRandomSyllable(this.getDifficulty());
     }
 
     public boolean containsValue(String key, String value) {

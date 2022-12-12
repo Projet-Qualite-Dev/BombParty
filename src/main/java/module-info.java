@@ -1,4 +1,4 @@
-module com.example.bombparty {
+module main {
     requires javafx.controls;
     requires javafx.fxml;
     requires org.json;

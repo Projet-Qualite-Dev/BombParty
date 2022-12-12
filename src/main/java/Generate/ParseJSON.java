@@ -1,3 +1,7 @@
+/**
+ * Cette class permet de lire un fichier JSON avec les objets JSONArray et JSONObject qui sont dans une librairie importé.
+ */
+
 package Generate;
 
 import java.io.*;
@@ -13,26 +17,42 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class ParseJSON {
-    private JSONObject JSONObject;
-    private Map<String, Set<String>> wordList = new HashMap<>();
+public final class ParseJSON {
+    private final JSONObject JSON_OBJECT;
+    private final Map<String, Set<String>> WORD_LIST = new HashMap<>();
 
+    /**
+     * Le constructeur de la class ParseJSON.
+     *
+     * @param filename : Nom du fichier JSON contenant les syllabes et les mots associés.
+     * @throws URISyntaxException : Dans le cas où le nom du fichier n'est pas bon.
+     * @throws IOException : Dans le cas où le fichier n'existe pas.
+     */
     public ParseJSON(String filename) throws IOException, URISyntaxException {
         long startTime = System.nanoTime();
         String content = new String(Files.readAllBytes(Paths.get(getClass().getResource("/Generate/" + filename).toURI())));
-        this.JSONObject = new JSONObject(content);
+        this.JSON_OBJECT = new JSONObject(content);
         this.JSONObjectToMap();
         System.out.println("Temps d'execution de la lecture du JSON (en seconde) : " + (System.nanoTime() - startTime) / Math.pow(10, 9));
     }
 
+    /**
+     * Permet de mettre transformer le JSONObject en Map<String, Set<String>>.
+     */
     private void JSONObjectToMap() {
-        for (String key: this.JSONObject.keySet()) {
-            this.wordList.put(key, getAllWordBySyllab(key));
+        for (String key: this.JSON_OBJECT.keySet()) {
+            this.WORD_LIST.put(key, getAllWordBySyllab(key));
         }
     }
 
+    /**
+     * Permet d'avoir tous les mots contenant une syllabe de 3 lettres.
+     *
+     * @param syllab : Syllabes de 3 lettres.
+     * @return Set<String> : Liste des mots associés à la syllabe.
+     */
     public Set<String> getAllWordBySyllab(String syllab) {
-        JSONArray jsonArray = this.JSONObject.getJSONArray(syllab);
+        JSONArray jsonArray = this.JSON_OBJECT.getJSONArray(syllab);
         Set<String> allWordsBySyllab = new HashSet<>();
         for (Object words: jsonArray) {
             allWordsBySyllab.add(words.toString());

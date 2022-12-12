@@ -1,3 +1,7 @@
+/**
+ * Cette class permet d'avoir une Map<String, Set<String>> qui contient en clef les syllabes de 3 lettre et un valeur une liste de mots associés à cette syllabe.
+ */
+
 package game.bombParty.Class;
 
 import Generate.GenerateMap;
@@ -7,33 +11,51 @@ import java.net.URISyntaxException;
 import java.util.*;
 import java.util.Map;
 
-public class WordMap {
+public final class WordMap {
     private Map<String, Set<String>> wordList;
     private Random random;
 
 
+    /**
+     * Le constructeur de la class WordMap.
+     *
+     * @throws URISyntaxException : Dans le cas où le nom du fichier n'est pas bon.
+     * @throws IOException : Dans le cas où le fichier n'existe pas.
+     */
     public WordMap() throws URISyntaxException, IOException {
         this.wordList = new GenerateMap("dictionary.txt").generateLettersAndWordList();
         this.random = new Random();
     }
 
-    public String getRandomSyllab(int difficulty) {
-        int numberOfSyllab = this.random.nextInt(0, this.wordList.size());
+    /**
+     * Permet d'avoir une syllabe au hasard. C'est à chaque fois une différent.
+     *
+     * @param difficulty : Nombre de mots minimum.
+     * @return String : La syllabe choisit au hasard.
+     */
+    public String getRandomSyllable(int difficulty) {
+        int numberOfSyllable = this.random.nextInt(0, this.wordList.size());
         int index = 1;
         for (String key: this.wordList.keySet()) {
-            if (index == numberOfSyllab) {
+            if (index == numberOfSyllable) {
                 int hashCode = Character.valueOf(key.toCharArray()[2]).hashCode(); /* Résout un bug quand le dernier caratère de la syllabe est un espace vide */
                 if (this.wordList.get(key).size() > difficulty && hashCode != 13) {
                     return key;
                 } else {
-                    return getRandomSyllab(difficulty);
+                    return getRandomSyllable(difficulty);
                 }
             }
             ++index;
         }
-        return getRandomSyllab(difficulty);
+        return getRandomSyllable(difficulty);
     }
 
+    /**
+     * Permet de savoir si une valeur est dans un la liste avec une syllabe associée.
+     * @param key : La syllabe.
+     * @param value : La valeur associée à la syllabe.
+     * @return boolean : Si la valeur contient la syllabe.
+     */
     public boolean containsValueByKey(String key, String value) {
         return this.wordList.get(key).contains(value);
     }

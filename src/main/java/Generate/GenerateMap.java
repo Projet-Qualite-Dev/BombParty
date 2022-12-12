@@ -1,3 +1,12 @@
+/**
+ * Cette class permet de générer une Map contenant dans les clefs les syllabes de 3 lettres et dans les valeurs, les mots contenant ces syllabes.
+ * On le génère avec un dictionnaire français où tous les mots sont en majuscules et sans accents et dans l'ordre alphabétique.
+ *
+ * Nous avons fait deux méthodes pour extraire le dictionnaire :
+ *  - Une en lisant ligne par ligne en extrayant le maximum de syllabes dans le même mot.
+ *  - Une en lisant lettre par lettre en évitant les sauts de lignes. Cette méthode ne fonctionne pas car on n'a pas la possibilité d'avoir le mot sur lequel on est facilement.
+ */
+
 package Generate;
 
 import java.io.FileWriter;
@@ -7,19 +16,25 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
-public class GenerateMap {
-    private String dictionary;
-    private Map<String,Set<String>> wordList;
+public final class GenerateMap {
+    private final String DICTIONARY;
+    private final Map<String,Set<String>> WORD_LIST;
 
+    /**
+     * Le constructeur de la class GenerateMap.
+     *
+     * @param filename : Nom du fichier contenant les mots du dictionnaire.
+     * @throws URISyntaxException : Dans le cas où le nom du fichier n'est pas bon.
+     * @throws IOException : Dans le cas où le fichier n'existe pas.
+     */
     public GenerateMap(String filename) throws URISyntaxException, IOException {
-        this.dictionary = new String(Files.readAllBytes(Paths.get(getClass().getResource("/Generate/" + filename).toURI())));
-        this.wordList = new HashMap<>();
+        this.DICTIONARY = new String(Files.readAllBytes(Paths.get(getClass().getResource("/Generate/" + filename).toURI())));
+        this.WORD_LIST = new HashMap<>();
     }
 
-/*
- * Méthode qui permet de générer une map mais n'est pas utilisable car on n'a pas les mots dans une variable.
- * Elle consiste à prendre caractère par caractère sans prendre en compte que c'est des mots. Si la syllabe contient un "\n", alors on passe à l'itération suivante.
-*/
+    /**
+     * Fonction qui essaye de génèrer la Map mais qui n'est pas fonctionnel car on n'a pas les mots. Elle lit caractère par caractère en évitant les sauts de lignes.
+     */
 //    public void generateLetters() {
 //        long startTime = System.nanoTime();
 //        for (int i = 0; i < this.dictionary.length() - 2; i++) {
@@ -35,31 +50,39 @@ public class GenerateMap {
 //        System.out.println(System.nanoTime() - startTime);
 //    }
 
+    /**
+     * Fonction qui génère la Map en lisant le dictionnaire ligne par ligne.
+     *
+     * @return Map<String, Set<String>> : Map contenant les syllabes et la liste de mots contenant les syllabes.
+     */
     public Map generateLettersAndWordList() {
         long startTime = System.nanoTime();
-        for (String currentWord: this.dictionary.split(System.lineSeparator())) {
+        for (String currentWord: this.DICTIONARY.split(System.lineSeparator())) {
             for (int i = 0; i < currentWord.length() - 2; ++i) {
-                String currentSyllab = currentWord.substring(i, i + 3);
-                if (this.wordList.containsKey(currentSyllab)) {
-                    this.wordList.get(currentSyllab).add(currentWord);
+                String currentSyllable = currentWord.substring(i, i + 3);
+                if (this.WORD_LIST.containsKey(currentSyllable)) {
+                    this.WORD_LIST.get(currentSyllable).add(currentWord);
                 } else {
-                    this.wordList.put(currentSyllab, new HashSet<>(List.of(currentWord)));
+                    this.WORD_LIST.put(currentSyllable, new HashSet<>(List.of(currentWord)));
                 }
             }
         }
         System.out.println("Temps d'execution de la lecture du dictionnaire (en seconde) : " + (System.nanoTime() - startTime) / Math.pow(10, 9));
-        return this.wordList;
+        return this.WORD_LIST;
     }
 
+    /**
+     * Permet de générer un fichier JSON à partir de la Map.
+     */
     public void generateJSON() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("{\n");
-        for (String key: this.wordList.keySet()) {
+        for (String key: this.WORD_LIST.keySet()) {
             stringBuilder.append("\t\"" + key + "\": [\n");
             int i = 0;
-            for (String word: this.wordList.get(key)) {
+            for (String word: this.WORD_LIST.get(key)) {
                 ++i;
-                if (i == this.wordList.get(key).size()) {
+                if (i == this.WORD_LIST.get(key).size()) {
                     stringBuilder.append("\t\t\"" + word + "\"\n");
                 } else {
                     stringBuilder.append("\t\t\"" + word + "\",\n");

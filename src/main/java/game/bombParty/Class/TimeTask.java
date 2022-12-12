@@ -1,29 +1,44 @@
+/**
+ * Cette class permet de gérer le décompte lors du jeu.
+ */
+
 package game.bombParty.Class;
 
-import game.bombParty.Main;
 import game.bombParty.controller.GamePageController;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 
 import java.util.TimerTask;
 
-public class TimeTask extends TimerTask {
+public final class TimeTask extends TimerTask {
 
     private int second;
     private int millisecond;
-    private int time;
-    private Label secondLabel, syllabLabel;
-    private Life life;
+    private final int TIME;
+    private final Label SECOND_LABEL;
+    private final Label SYLLABLE;
+    private final Life LIFE;
 
-    public TimeTask(int time, Label secondLabel, Label syllabLabel, Life life) {
-        this.time = time;
-        this.second = this.time;
+    /**
+     * Le constructeur de la class TimeTask.
+     *
+     * @param time : Défini le temps de départ pour le décompte.
+     * @param secondLabel : Défini le label contenant le décompte en secondes.
+     * @param syllableLabel : Défini le label contenant la syllabe actuelle.
+     * @param life : Défini la vie du joueur.
+     */
+    public TimeTask(int time, Label secondLabel, Label syllableLabel, Life life) {
+        this.TIME = time;
+        this.second = this.TIME;
         this.millisecond = 0;
-        this.secondLabel = secondLabel;
-        this.syllabLabel = syllabLabel;
-        this.life = life;
+        this.SECOND_LABEL = secondLabel;
+        this.SYLLABLE = syllableLabel;
+        this.LIFE = life;
     }
 
+    /**
+     * Permet de faire le décompte avec les secondes et les dixièmes de secondes.
+     */
     @Override
     public void run() {
         System.out.println("onf");
@@ -34,18 +49,18 @@ public class TimeTask extends TimerTask {
             this.millisecond -= 1;
         }
         if (this.second == 0 && this.millisecond == 0) {
-            if (this.life.getActualLife() == 0) {
+            if (this.LIFE.getActualLife() == 0) {
                 this.cancel();
                 Platform.runLater(GamePageController::quit);
             } else {
-                this.second = time;
+                this.second = TIME;
                 Platform.runLater(() -> {
-                    this.life.looseLife();
-                    this.syllabLabel.setText(GamePageController.getGame().getRandomSyllab());
+                    this.LIFE.looseLife();
+                    this.SYLLABLE.setText(GamePageController.getGame().getRandomSyllable());
                 });
             }
 
         }
-        Platform.runLater(() -> this.secondLabel.setText(this.second + "." + this.millisecond + "s"));
+        Platform.runLater(() -> this.SECOND_LABEL.setText(this.second + "." + this.millisecond + "s"));
     }
 }

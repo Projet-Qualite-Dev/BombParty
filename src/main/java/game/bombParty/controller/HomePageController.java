@@ -1,20 +1,13 @@
 package game.bombParty.controller;
 
-import game.bombParty.Main;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class HomePageController extends StackPane implements JavaFXControllable {
+public final class HomePageController extends StackPane implements JavaFXControllable {
     @FXML
     Slider lifeSlider, timeSlider, difficultySlider;
     @FXML
@@ -40,7 +33,7 @@ public class HomePageController extends StackPane implements JavaFXControllable 
     }
 
     @FXML
-    public void launchGamePage() throws IOException, URISyntaxException {
+    public void launchGamePage() throws Exception {
         Scene scene = new Scene(new GamePageController(this.primaryStage, (int) this.timeSlider.getValue(), Integer.parseInt(this.difficultyLabel.getText())));
         this.primaryStage.setScene(scene);
     }
