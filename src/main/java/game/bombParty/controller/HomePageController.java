@@ -1,5 +1,6 @@
 package game.bombParty.controller;
 
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -46,6 +47,6 @@ public final class HomePageController extends AnchorPane implements JavaFXContro
         slider.setSnapToTicks(true);
         slider.setShowTickLabels(true);
         slider.setShowTickMarks(true);
-        slider.setOnMouseClicked(Event -> label.setText(String.valueOf((int) slider.getValue())));
+        label.textProperty().bind(Bindings.format("%.0f", slider.valueProperty()));
     }
 }
