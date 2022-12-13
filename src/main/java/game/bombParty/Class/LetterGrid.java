@@ -13,7 +13,7 @@ public final class LetterGrid extends GridPane {
         for (AllLettersForGame currentLetter: AllLettersForGame.values()) {
             this.letterList.add(new Letter(currentLetter));
         }
-        this.setLayoutX(327);
+        this.setLayoutX(370);
         this.setLayoutY(504);
         this.setGridChildren();
     }
@@ -21,8 +21,8 @@ public final class LetterGrid extends GridPane {
     private void setGridChildren() {
         int cpt = 0;
         this.getChildren().clear();
-        for (int row = 0; row < this.letterList.size() / 13; ++row) {
-            for (int column = 0; column < this.letterList.size() / 2; ++column) {
+        for (int row = 0; row < this.letterList.size() / 7; ++row) {
+            for (int column = 0; column < this.letterList.size() / 3; ++column) {
                 Label label = new Label(this.letterList.get(cpt).getValue());
                 label.setMinWidth(20);
                 label.setMinHeight(20);
