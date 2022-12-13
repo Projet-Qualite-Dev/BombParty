@@ -1,12 +1,3 @@
-/**
- * Cette class permet de générer une Map contenant dans les clefs les syllabes de 3 lettres et dans les valeurs, les mots contenant ces syllabes.
- * On le génère avec un dictionnaire français où tous les mots sont en majuscules et sans accents et dans l'ordre alphabétique.
- *
- * Nous avons fait deux méthodes pour extraire le dictionnaire :
- *  - Une en lisant ligne par ligne en extrayant le maximum de syllabes dans le même mot.
- *  - Une en lisant lettre par lettre en évitant les sauts de lignes. Cette méthode ne fonctionne pas car on n'a pas la possibilité d'avoir le mot sur lequel on est facilement.
- */
-
 package Generate;
 
 import java.io.FileWriter;
@@ -16,9 +7,27 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
+/**
+ * Cette class permet de générer une Map contenant dans les clefs les syllabes de 3 lettres et dans les valeurs, les mots contenant ces syllabes.
+ * On le génère avec un dictionnaire français où tous les mots sont en majuscules et sans accents et dans l'ordre alphabétique.
+ *
+ * Nous avons fait deux méthodes pour extraire le dictionnaire :
+ *  - Une en lisant ligne par ligne en extrayant le maximum de syllabes dans le même mot.
+ *  - Une en lisant lettre par lettre en évitant les sauts de lignes. Cette méthode ne fonctionne pas car on n'a pas la possibilité d'avoir le mot sur lequel on est facilement.
+ */
 public final class GenerateMap {
+
+    /**
+     * Le contenu du fichier dictionnaire.
+     */
     private final String DICTIONARY;
+    /**
+     * Map qui contient pour clefs les syllabes et pour valeurs les mots associés.
+     */
     private final Map<String,Set<String>> WORD_LIST;
+    /**
+     * Le temps d'execution.
+     */
     private static String executeTime = "";
 
     /**
@@ -36,7 +45,7 @@ public final class GenerateMap {
     /**
      * Avoir le temps d'execution.
      *
-     * @return String : Le temps d'execution.
+     * @return Le temps d'execution.
      */
     public static String getExecuteTime() {
         return executeTime;
@@ -63,7 +72,7 @@ public final class GenerateMap {
     /**
      * Fonction qui génère la Map en lisant le dictionnaire ligne par ligne.
      *
-     * @return Map<String, Set<String>> : Map contenant les syllabes et la liste de mots contenant les syllabes.
+     * @return Map contenant les syllabes et la liste de mots contenant les syllabes.
      */
     public Map generateLettersAndWordList() {
         long startTime = System.nanoTime();
