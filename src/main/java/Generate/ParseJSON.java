@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Cette class permet de lire un fichier JSON avec les objets JSONArray et JSONObject qui sont dans une librairie importé.
+ * Cette class permet de lire un fichier JSON avec les objets JSONArray et JSONObject qui sont dans une librairie importée.
  */
 public final class ParseJSON {
 
@@ -57,14 +57,11 @@ public final class ParseJSON {
 
     /**
      * Permet de mettre transformer le JSONObject en une Map.
-     *
-     * @return Map contenant les syllabes et la liste de mots contenant les syllabes.
      */
-    public Map JSONObjectToMap() {
+    public void JSONObjectToMap() {
         for (String key: this.JSON_OBJECT.keySet()) {
             this.WORD_LIST.put(key, getAllWordBySyllable(key));
         }
-        return this.WORD_LIST;
     }
 
     /**
@@ -75,10 +72,10 @@ public final class ParseJSON {
      */
     public Set<String> getAllWordBySyllable(String syllable) {
         JSONArray jsonArray = this.JSON_OBJECT.getJSONArray(syllable);
-        Set<String> allWordsBySyllab = new HashSet<>();
+        Set<String> allWordsBySyllable = new HashSet<>();
         for (Object words: jsonArray) {
-            allWordsBySyllab.add(words.toString());
+            allWordsBySyllable.add(words.toString());
         }
-        return allWordsBySyllab;
+        return allWordsBySyllable;
     }
 }
