@@ -78,6 +78,7 @@ public final class WordMap {
 
     /**
      * Permet de savoir si une valeur est dans un la liste avec une syllabe associée.
+     *
      * @param key : La syllabe.
      * @param value : La valeur associée à la syllabe.
      * @return Si la valeur contient la syllabe.
