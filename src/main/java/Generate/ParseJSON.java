@@ -1,7 +1,3 @@
-/**
- * Cette class permet de lire un fichier JSON avec les objets JSONArray et JSONObject qui sont dans une librairie importé.
- */
-
 package Generate;
 
 import java.io.*;
@@ -17,9 +13,22 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Cette class permet de lire un fichier JSON avec les objets JSONArray et JSONObject qui sont dans une librairie importé.
+ */
 public final class ParseJSON {
+
+    /**
+     * L'objet qui lit le contenu du fichier JSON.
+     */
     private final JSONObject JSON_OBJECT;
+    /**
+     * Map qui contient pour clefs les syllabes et pour valeurs les mots associés.
+     */
     private final Map<String, Set<String>> WORD_LIST = new HashMap<>();
+    /**
+     * Le temps d'execution.
+     */
     private static String executeTime = "";
 
     /**
@@ -40,7 +49,7 @@ public final class ParseJSON {
     /**
      * Avoir le temps d'execution.
      *
-     * @return String : Le temps d'execution.
+     * @return Le temps d'execution.
      */
     public static String getExecuteTime() {
         return executeTime;
@@ -49,11 +58,11 @@ public final class ParseJSON {
     /**
      * Permet de mettre transformer le JSONObject en Map<String, Set<String>>.
      *
-     * @return Map<String, Set<String>> : Map contenant les syllabes et la liste de mots contenant les syllabes.
+     * @return Map contenant les syllabes et la liste de mots contenant les syllabes.
      */
     public Map JSONObjectToMap() {
         for (String key: this.JSON_OBJECT.keySet()) {
-            this.WORD_LIST.put(key, getAllWordBySyllab(key));
+            this.WORD_LIST.put(key, getAllWordBySyllable(key));
         }
         return this.WORD_LIST;
     }
@@ -61,11 +70,11 @@ public final class ParseJSON {
     /**
      * Permet d'avoir tous les mots contenant une syllabe de 3 lettres.
      *
-     * @param syllab : Syllabes de 3 lettres.
-     * @return Set<String> : Liste des mots associés à la syllabe.
+     * @param syllable : Syllabes de 3 lettres.
+     * @return Liste des mots associés à la syllabe.
      */
-    public Set<String> getAllWordBySyllab(String syllab) {
-        JSONArray jsonArray = this.JSON_OBJECT.getJSONArray(syllab);
+    public Set<String> getAllWordBySyllable(String syllable) {
+        JSONArray jsonArray = this.JSON_OBJECT.getJSONArray(syllable);
         Set<String> allWordsBySyllab = new HashSet<>();
         for (Object words: jsonArray) {
             allWordsBySyllab.add(words.toString());
