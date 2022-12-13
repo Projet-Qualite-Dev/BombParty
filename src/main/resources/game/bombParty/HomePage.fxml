@@ -10,13 +10,13 @@
             <Font size="11.0" />
         </font>
     </Label>
-    <Label alignment="CENTER" layoutX="282.0" layoutY="268.0" prefHeight="29.0" prefWidth="148.0" text="Temps de réponse (en s) :" />
-    <Slider fx:id="timeSlider" layoutX="438.0" layoutY="276.0" prefHeight="14.0" prefWidth="181.0" />
-    <Label fx:id="timeLabel" alignment="CENTER" layoutX="627.0" layoutY="269.0" prefHeight="29.0" prefWidth="44.0" />
-    <Label alignment="CENTER" layoutX="282.0" layoutY="309.0" prefHeight="29.0" prefWidth="148.0" text="Dificulté :" />
-    <Slider fx:id="difficultySlider" layoutX="438.0" layoutY="317.0" prefHeight="14.0" prefWidth="181.0" />
-    <Label fx:id="difficultyLabel" alignment="CENTER" layoutX="627.0" layoutY="309.0" prefHeight="29.0" prefWidth="44.0" />
-    <Button layoutX="377.0" layoutY="386.0" mnemonicParsing="false" onAction="#launchGamePage" prefHeight="29.0" prefWidth="148.0" text="Lancer la partie" />
-   <Label fx:id="textScoreLabel" alignment="CENTER" layoutX="371.0" layoutY="458.0" prefHeight="29.0" prefWidth="119.0" />
+    <Label alignment="CENTER" layoutX="256.0" layoutY="268.0" prefHeight="29.0" prefWidth="148.0" text="Temps de réponse (en s) :" />
+    <Slider fx:id="timeSlider" layoutX="412.0" layoutY="276.0" prefHeight="14.0" prefWidth="181.0" />
+    <Label fx:id="timeLabel" alignment="CENTER" layoutX="601.0" layoutY="269.0" prefHeight="29.0" prefWidth="44.0" />
+    <Label alignment="CENTER" layoutX="256.0" layoutY="309.0" prefHeight="29.0" prefWidth="148.0" text="Dificulté :" />
+    <Slider fx:id="difficultySlider" layoutX="412.0" layoutY="317.0" prefHeight="14.0" prefWidth="181.0" />
+    <Label fx:id="difficultyLabel" alignment="CENTER" layoutX="601.0" layoutY="309.0" prefHeight="29.0" prefWidth="44.0" />
+    <Button layoutX="377.0" layoutY="400.0" mnemonicParsing="false" onAction="#launchGamePage" prefHeight="29.0" prefWidth="148.0" text="Lancer la partie" />
+    <Label fx:id="textScoreLabel" alignment="CENTER" layoutX="371.0" layoutY="458.0" prefHeight="29.0" prefWidth="119.0" />
     <Label fx:id="scoreLabel" alignment="CENTER" layoutX="490.0" layoutY="458.0" prefHeight="29.0" prefWidth="25.0" />
 </fx:root>
