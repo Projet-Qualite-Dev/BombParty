@@ -9,14 +9,14 @@ import java.util.*;
 import java.util.Map;
 
 /**
- * Cette class permet d'avoir une Map qui contient en clef les syllabes de 3 lettre et un valeur une liste de mots associés à cette syllabe.
+ * Cette class permet d'avoir une Map qui contient en clef les syllabes de 3 lettres et un valeurs une liste de mots associés à cette syllabe.
  */
 public final class WordMap {
 
     /**
      * Map qui contient pour clefs les syllabes et pour valeurs les mots associés.
      */
-    private Map<String, Set<String>> wordList;
+    private final Map<String, Set<String>> wordList;
     /**
      * Objet qui permet de choisir au hasard une syllabe sans prendre la même à chaque fois.
      */
@@ -37,7 +37,7 @@ public final class WordMap {
     public WordMap(boolean isSorted) throws URISyntaxException, IOException {
         // Pour générer la Map à l'aide du dictionnaire
         this.wordList = new GenerateMap("dictionary.txt").generateLettersAndWordList();
-        this.executeTime = GenerateMap.getExecuteTime();
+        executeTime = GenerateMap.getExecuteTime();
 
         // Pour générer la Map à l'aide du JSON
 //        this.wordList = new ParseJSON("wordList.json").JSONObjectToMap();
@@ -57,7 +57,7 @@ public final class WordMap {
     }
 
     /**
-     * Permet d'avoir une syllabe au hasard. C'est à chaque fois une différent.
+     * Permet d'avoir une syllabe au hasard. C'est à chaque fois une différente.
      *
      * @param difficulty : Nombre de mots minimum.
      * @return String : La syllabe choisit au hasard.
