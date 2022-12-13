@@ -7,9 +7,19 @@ import javafx.scene.text.Font;
 
 import java.util.*;
 
+/**
+ * Cette class permet de générer une GridPane contenant toutes les lettres de BombParty.
+ */
 public final class LetterGrid extends GridPane {
+
+    /**
+     * La liste de toutes les lettres.
+     */
     private List<Letter> letterList = new ArrayList<>();
 
+    /**
+     * Le constructeur de la class LetterGrid.
+     */
     public LetterGrid() {
         for (AllLettersForGame currentLetter: AllLettersForGame.values()) {
             this.letterList.add(new Letter(currentLetter));
@@ -19,6 +29,9 @@ public final class LetterGrid extends GridPane {
         this.setGridChildren();
     }
 
+    /**
+     * Initialiser tous les labels contenants chacun une lettre différente.
+     */
     public void setGridChildren() {
         int cpt = 0;
         this.getChildren().clear();
@@ -36,23 +49,35 @@ public final class LetterGrid extends GridPane {
         }
     }
 
-    public List<Letter> setUseForAWord(String word) {
+    /**
+     * Changer l'utilisation des lettres selon le mot entré.
+     *
+     * @param word : Mot choisi par l'utilisateur.
+     */
+    public void setUseForAWord(String word) {
         for (char currentLetter: word.toCharArray()) {
             for (Letter currentCheckLetter: this.letterList) {
                 if (currentCheckLetter.getValue().equals(String.valueOf(currentLetter))) currentCheckLetter.use();
             }
         }
         this.updateLetters();
-        return letterList;
     }
 
 
+    /**
+     * Permet de changer la couleur du fond des labels selon l'utilisation de chaque lettre.
+     */
     public void updateLetters() {
         for (int currentLetter = 0; currentLetter < this.getChildren().size(); ++currentLetter) {
             this.getChildren().get(currentLetter).setStyle("-fx-background-color: " + this.letterList.get(currentLetter).getColor() + ";");
         }
     }
 
+    /**
+     * Si toutes les lettres ont déjà été choisies.
+     *
+     * @return : Si toutes les lettres ont été choisies.
+     */
     public boolean isFull() {
         for (Letter currentLetter: this.letterList) {
             if (!currentLetter.getUse()) return false;
