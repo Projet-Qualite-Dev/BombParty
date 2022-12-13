@@ -56,7 +56,7 @@ public final class ParseJSON {
     }
 
     /**
-     * Permet de mettre transformer le JSONObject en Map<String, Set<String>>.
+     * Permet de mettre transformer le JSONObject en une Map.
      *
      * @return Map contenant les syllabes et la liste de mots contenant les syllabes.
      */

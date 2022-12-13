@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 /**
  * Cette class permet de lancer l'application
  */
-public class Main extends Application {
+public final class Main extends Application {
 
     /**
      * Lancer l'application.
@@ -27,7 +27,7 @@ public class Main extends Application {
     /**
      * Le lancement du programme.
      *
-     * @param args
+     * @param args : Les arguments au lancement du programme.
      */
     public static void main(String[] args) {
         launch();

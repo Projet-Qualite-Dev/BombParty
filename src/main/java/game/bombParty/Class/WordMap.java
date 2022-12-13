@@ -9,7 +9,7 @@ import java.util.*;
 import java.util.Map;
 
 /**
- * Cette class permet d'avoir une Map<String, Set<String>> qui contient en clef les syllabes de 3 lettre et un valeur une liste de mots associés à cette syllabe.
+ * Cette class permet d'avoir une Map qui contient en clef les syllabes de 3 lettre et un valeur une liste de mots associés à cette syllabe.
  */
 public final class WordMap {
 
@@ -30,6 +30,7 @@ public final class WordMap {
     /**
      * Le constructeur de la class WordMap.
      *
+     * @param isSorted : Si le programme lance ou non l'algorithme de tri.
      * @throws URISyntaxException : Dans le cas où le nom du fichier n'est pas bon.
      * @throws IOException : Dans le cas où le fichier n'existe pas.
      */
@@ -88,7 +89,7 @@ public final class WordMap {
     /**
      * Algorithme de tri par sélection qui tri des chaines de caractères par rapport à leur taille. Cela consiste à déterminer le plus petit élément, puis le deuxième petit élément, et ainsi de suite.
      * On le fait dans une liste de valeurs dont la clef est "ECT". On ne pas le faire dans toutes les listes de mots car la Map est beaucoup trop grande.
-     * On ne met pas non plus le résultat dans la Map car le Set<String> range de nouveau à l'ajout. Notre tri est donc supprimé.
+     * On ne met pas non plus le résultat dans la Map car le Set range de nouveau à l'ajout. Notre tri est donc supprimé.
      * On parcourt la liste avec une ListIterator qui permet d'avoir l'index et l'Iterator.
      */
     public void sortWordList() {
