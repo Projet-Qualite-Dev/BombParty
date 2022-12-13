@@ -13,7 +13,7 @@ import java.util.*;
  *
  * Nous avons fait deux méthodes pour extraire le dictionnaire :
  *  - Une en lisant ligne par ligne en extrayant le maximum de syllabes dans le même mot.
- *  - Une en lisant lettre par lettre en évitant les sauts de lignes. Cette méthode ne fonctionne pas car on n'a pas la possibilité d'avoir le mot sur lequel on est facilement.
+ *  - Une en lisant lettre par lettre en évitant les sauts de lignes. Cette méthode ne fonctionne pas, car on n'a pas la possibilité d'avoir le mot sur lequel on est facilement.
  */
 public final class GenerateMap {
 
@@ -52,7 +52,7 @@ public final class GenerateMap {
     }
 
     /**
-     * Fonction qui essaye de génèrer la Map mais qui n'est pas fonctionnel car on n'a pas les mots. Elle lit caractère par caractère en évitant les sauts de lignes.
+     * Fonction qui essaye de générer la Map mais qui n'est pas fonctionnel, car on n'a pas les mots. Elle lit caractère par caractère en évitant les sauts de lignes.
      */
 //    public void generateLetters() {
 //        long startTime = System.nanoTime();
