@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 public final class HomePageController extends AnchorPane implements JavaFXControllable {
 
     /**
-     * Les Curseurs qui sont sur la page d'accueil.
+     * Les curseurs qui sont sur la page d'accueil.
      */
     @FXML
     private Slider timeSlider, difficultySlider;
@@ -26,7 +26,7 @@ public final class HomePageController extends AnchorPane implements JavaFXContro
     /**
      * La page de l'application.
      */
-    private Stage primaryStage;
+    private final Stage primaryStage;
 
     /**
      * Le premier constructeur de la class HomePageController.
@@ -63,7 +63,7 @@ public final class HomePageController extends AnchorPane implements JavaFXContro
     /**
      * Lancer une partie.
      *
-     * @throws Exception : i ce n'est pas possible de créer la partie.
+     * @throws Exception : Si ce n'est pas possible de créer la partie.
      */
     @FXML
     public void launchGamePage() throws Exception {
@@ -73,6 +73,7 @@ public final class HomePageController extends AnchorPane implements JavaFXContro
 
     /**
      * Modifier les paramètres d'un curseur.
+     *
      * @param slider : Le curseur à modifier.
      * @param minValue : La valeur minimum que le curseur doit prendre.
      * @param maxValue : La valeur minimum que le curseur doit prendre.
