@@ -76,12 +76,6 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
     }
 
     @FXML
-    public void retryGame() throws Exception {
-        this.timer.cancel();
-        primaryStage.setScene(new Scene(new GamePageController(primaryStage, this.time, this.diffictulty)));
-    }
-
-    @FXML
     public void startGame() {
         this.getChildren().add(this.letterGrid);
         this.textField.requestFocus();
