@@ -68,7 +68,7 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
         point = 0;
         this.loadFXMLFile("Game");
         game = new Game(new Player(new Life()), difficulty);
-        this.lifeLabel.textProperty().bind(game.getStringLife());
+        this.executeTimeLabel.setText(WordMap.getExecuteTime());
         this.timer = new Timer();
     }
 
@@ -99,7 +99,7 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
             }
         });
         this.letterGrid = new LetterGrid();
-        this.executeTimeLabel.setText(WordMap.getExecuteTime());
+        this.lifeLabel.textProperty().bind(game.getStringLife());
     }
 
     /**
