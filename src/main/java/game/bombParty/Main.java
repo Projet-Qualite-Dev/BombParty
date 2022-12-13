@@ -5,11 +5,16 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-
+/**
+ * Cette class permet de lancer l'application
+ */
 public class Main extends Application {
 
+    /**
+     * Lancer l'application.
+     *
+     * @param stage : La page de l'application.
+     */
     @Override
     public void start(Stage stage) {
         Scene scene = new Scene(new HomePageController(stage));
@@ -18,9 +23,13 @@ public class Main extends Application {
         stage.setTitle("BombParty");
         stage.show();
     }
+
+    /**
+     * Le lancement du programme.
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         launch();
     }
-
-    /* TODO Remettre en forme */
 }
