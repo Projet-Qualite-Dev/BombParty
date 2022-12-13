@@ -14,7 +14,8 @@ public final class Player {
 
 
     /**
-     * Le constructeur
+     * Le constructeur de la class Player.
+     *
      * @param life : La vie du joueur.
      */
     public Player(Life life) {
@@ -31,16 +32,7 @@ public final class Player {
     }
 
     /**
-     * Avoir la vie du joueur.
-     *
-     * @return La vie du joueur.
-     */
-    public int getActualLife() {
-        return this.life.getActualLife();
-    }
-
-    /**
-     * Avoir la vie du joueur.
+     * Avoir la vie du joueur sous forme de SimpleStringProperty.
      *
      * @return La vie du joueur.
      */
@@ -53,12 +45,5 @@ public final class Player {
      */
     public void winLife() {
         this.life.winLife();
-    }
-
-    /**
-     * Permet de perdre une vie.
-     */
-    public void looseLife() {
-        this.life.looseLife();
     }
 }
