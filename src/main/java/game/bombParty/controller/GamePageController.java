@@ -77,9 +77,9 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
 
     @FXML
     public void startGame() {
-        this.getChildren().add(this.letterGrid);
         this.textField.requestFocus();
         if (!game.isStarted()) {
+            this.getChildren().add(this.letterGrid);
             game.start();
             this.update();
         }
