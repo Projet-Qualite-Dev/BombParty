@@ -1,11 +1,10 @@
-/**
- * Cette class permet de gérer les vies du joueur.
- */
-
 package game.bombParty.Class;
 
 import javafx.beans.property.SimpleStringProperty;
 
+/**
+ * Cette class permet de gérer les vies du joueur.
+ */
 public final class Life {
     private int actualLife;
     private final SimpleStringProperty LIFE = new SimpleStringProperty();

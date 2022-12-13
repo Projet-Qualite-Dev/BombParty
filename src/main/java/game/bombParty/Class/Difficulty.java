@@ -5,10 +5,25 @@ package game.bombParty.Class;
  */
 public final class Difficulty {
 
+    /**
+     * Valeur maximum de la vie de départ.
+     */
     private static final int MAX_DIFFICULTY = 3;
+    /**
+     * Valeur du nombre de mots minimum pour une difficulté facile.
+     */
     private final int VALUE_OF_EASY = 500;
+    /**
+     * Valeur du nombre de mots minimum pour une difficulté moyenne.
+     */
     private final int VALUE_OF_MEDIUM = 150;
+    /**
+     * Valeur du nombre de mots minimum pour une difficulté difficile.
+     */
     private final int VALUE_OF_HARD = 50;
+    /**
+     * La valeur de la difficulté allant de 1 à 3.
+     */
     private final int VALUE_OF_DIFFICULTY;
 
 
