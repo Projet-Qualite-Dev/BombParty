@@ -42,7 +42,7 @@ public final class Difficulty {
     /**
      * Permet d'avoir le nombre de mots associés à une syllabe par rapport à la difficulté.
      *
-     * @return int : Nombre de mots dans la liste de mots associés à une syllabe.
+     * @return Nombre de mots dans la liste de mots associés à une syllabe.
      */
     public int getValue() {
         if (this.VALUE_OF_DIFFICULTY == 1) {
