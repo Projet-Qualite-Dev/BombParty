@@ -32,7 +32,7 @@ public enum AllLettersForGame {
     private final char value;
 
     /**
-     * Le constructeur de la class AllLettersForGame.
+     * Le constructeur de l'enum AllLettersForGame.
      *
      * @param value : Valeur de la lettre.
      */
