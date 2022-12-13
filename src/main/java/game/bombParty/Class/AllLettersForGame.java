@@ -1,7 +1,7 @@
 package game.bombParty.Class;
 
 /**
- * Cette Enum permet d'avoir une liste de lettre pour le gain de vie quand on les a toutes trouvées. Il y a les lettres K, W, X, Y, Z qui ne sont pas (comprises) car elles sont trop compliquées à placer.
+ * Cette Enum permet d'avoir une liste de lettre pour le gain de vie quand on les a toutes trouvées. Il y a les lettres K, W, X, Y, Z qui ne sont pas comprises, car elles sont trop compliquées à placer.
  */
 public enum AllLettersForGame {
 
@@ -96,7 +96,7 @@ public enum AllLettersForGame {
     private final char value;
 
     /**
-     * Le constructeur de l'enum AllLettersForGame.
+     * Le constructeur de l'Enumeration AllLettersForGame.
      *
      * @param value : Valeur de la lettre.
      */
