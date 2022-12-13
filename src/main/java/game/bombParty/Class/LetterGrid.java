@@ -57,6 +57,7 @@ public final class LetterGrid extends GridPane {
         for (Letter currentLetter: this.letterList) {
             if (!currentLetter.getUse()) return false;
         }
+        this.setGridChildren();
         return true;
     }
 }
