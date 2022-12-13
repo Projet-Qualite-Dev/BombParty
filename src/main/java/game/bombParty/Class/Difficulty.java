@@ -1,9 +1,8 @@
+package game.bombParty.Class;
+
 /**
  * Cette class permet de mesurer la difficulté par rapport aux nombres de mots pour une même syllabe.
  */
-
-package game.bombParty.Class;
-
 public final class Difficulty {
 
     private static final int MAX_DIFFICULTY = 3;
@@ -15,7 +14,7 @@ public final class Difficulty {
 
     /**
      * Le constructeur de la class Difficulty.
-     * @param difficulty : La difficulté compris entre 1 et 3.
+     * @param difficulty : La difficulté comprise entre 1 et 3.
      * @throws Exception : Si la difficulté n'est pas comprise entre 0 et la difficulté maximum.
      */
     public Difficulty(int difficulty) throws Exception {
