@@ -25,4 +25,8 @@ public class Letter {
         if (this.use) return "green";
         else return "white";
     }
+
+    public void unuse() {
+        this.use = false;
+    }
 }
