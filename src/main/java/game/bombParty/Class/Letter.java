@@ -9,7 +9,20 @@ public class Letter {
         this.use = false;
     }
 
-    public void use(){
+    public boolean getUse() {
+        return this.use;
+    }
+
+    public String getValue() {
+        return value.getValue();
+    }
+
+    void use(){
         this.use = true;
+    }
+
+    public String getColor() {
+        if (this.use) return "green";
+        else return "white";
     }
 }
