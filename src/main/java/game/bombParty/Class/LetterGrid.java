@@ -10,7 +10,7 @@ public final class LetterGrid extends GridPane {
     private List<Letter> letterList = new ArrayList<>();
 
     public LetterGrid() {
-        for (Alphabet currentLetter: Alphabet.values()) {
+        for (AllLettersForGame currentLetter: AllLettersForGame.values()) {
             this.letterList.add(new Letter(currentLetter));
         }
         this.setLayoutX(327);

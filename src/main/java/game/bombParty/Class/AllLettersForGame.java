@@ -1,6 +1,6 @@
 package game.bombParty.Class;
 
-public enum Alphabet {
+public enum AllLettersForGame {
     A('A'),
     B('B'),
     C('C'),
@@ -11,7 +11,6 @@ public enum Alphabet {
     H('H'),
     I('I'),
     J('J'),
-    K('K'),
     L('L'),
     M('M'),
     N('N'),
@@ -22,14 +21,10 @@ public enum Alphabet {
     S('S'),
     T('T'),
     U('U'),
-    V('V'),
-    W('W'),
-    X('X'),
-    Y('Y'),
-    Z('Z');
+    V('V');
 
     private final char value;
-    Alphabet(char value) {
+    AllLettersForGame(char value) {
         this.value = value;
     }
 

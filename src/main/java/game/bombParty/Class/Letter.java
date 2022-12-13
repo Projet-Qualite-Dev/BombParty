@@ -1,10 +1,10 @@
 package game.bombParty.Class;
 
 public class Letter {
-    private Alphabet value;
+    private AllLettersForGame value;
     private boolean use;
 
-    public Letter(Alphabet value) {
+    public Letter(AllLettersForGame value) {
         this.value = value;
         this.use = false;
     }

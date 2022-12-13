@@ -21,7 +21,7 @@ public final class Player {
     public Player(Life life) {
         this.life = life;
         this.letters = new HashSet<>();
-        for (Alphabet v: Alphabet.values()) {
+        for (AllLettersForGame v: AllLettersForGame.values()) {
             this.letters.add(new Letter(v));
         }
     }
