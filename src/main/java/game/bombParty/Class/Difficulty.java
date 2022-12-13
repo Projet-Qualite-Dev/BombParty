@@ -2,6 +2,7 @@ package game.bombParty.Class;
 
 /**
  * Cette class permet de mesurer la difficulté par rapport aux nombres de mots pour une même syllabe.
+ * La moyenne de mots dans la Map est de 580 environ.
  */
 public final class Difficulty {
 
@@ -29,6 +30,7 @@ public final class Difficulty {
 
     /**
      * Le constructeur de la class Difficulty.
+     *
      * @param difficulty : La difficulté comprise entre 1 et 3.
      * @throws Exception : Si la difficulté n'est pas comprise entre 0 et la difficulté maximum.
      */
