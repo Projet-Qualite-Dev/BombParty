@@ -7,8 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.util.Timer;
@@ -19,8 +17,7 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
     private Label syllableLabel, secondLabel, lifeLabel, executeTimeLabel;
     @FXML
     private TextField textField;
-    @FXML
-    private GridPane letterGrid;
+    private LetterGrid letterGrid;
 
     private static Stage primaryStage;
     private static Game game;
@@ -44,11 +41,15 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
     @FXML
     public void initialize() {
         this.textField.setOnKeyPressed(event -> {
-            if (event.getCode().equals(KeyCode.ENTER)) {
+            if (event.getCode().equals(KeyCode.ENTER) && game.isStarted()) {
                 if (game.containsValue(this.syllableLabel.getText(), this.textField.getText().toUpperCase())) {
                     point++;
+
                     this.textField.setStyle("-fx-border-color: #71C562; -fx-border-width: 4px;");
-                } else {
+                    this.letterGrid.setUseForAWord(this.textField.getText().toUpperCase());
+                    if (this.letterGrid.isFull()) game.winLife();
+                }
+                else {
                     if (game.getActualLife() == 0) this.returnMenu();
                     else game.looseLife();
                     this.textField.setStyle("-fx-border-color: #CD5C5C; -fx-border-width: 4px;");
@@ -58,6 +59,7 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
                 this.textField.setText("");
             }
         });
+        this.letterGrid = new LetterGrid();
         this.executeTimeLabel.setText(WordMap.getExecuteTime());
     }
 
@@ -79,6 +81,7 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
 
     @FXML
     public void startGame() {
+        this.getChildren().add(this.letterGrid);
         this.textField.requestFocus();
         if (!game.isStarted()) {
             game.start();
