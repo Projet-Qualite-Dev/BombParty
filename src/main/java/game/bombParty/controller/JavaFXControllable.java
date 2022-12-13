@@ -11,6 +11,7 @@ public interface JavaFXControllable {
 
     /**
      * Charger un fichier FXML.
+     *
      * @param pageName : Le nom du fichier.
      * @throws RuntimeException : Si le fichier n'existe pas.
      */
@@ -19,7 +20,6 @@ public interface JavaFXControllable {
 
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
