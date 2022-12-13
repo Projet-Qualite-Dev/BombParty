@@ -9,6 +9,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.text.Normalizer;
 import java.util.Timer;
 
 public final class GamePageController extends AnchorPane implements JavaFXControllable {
@@ -41,21 +42,22 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
     @FXML
     public void initialize() {
         this.textField.setOnKeyPressed(event -> {
+            String input = Normalizer.normalize(this.textField.getText(), Normalizer.Form.NFKD).toUpperCase();
+
             if (event.getCode().equals(KeyCode.ENTER) && game.isStarted()) {
-                if (game.containsValue(this.syllableLabel.getText(), this.textField.getText().toUpperCase())) {
+                if (game.containsValue(this.syllableLabel.getText(), input)) {
                     point++;
 
                     this.textField.setStyle("-fx-border-color: #71C562; -fx-border-width: 4px;");
-                    this.letterGrid.setUseForAWord(this.textField.getText().toUpperCase());
+                    this.letterGrid.setUseForAWord(input);
                     if (this.letterGrid.isFull()) game.winLife();
+
+                    this.timer.cancel();
+                    this.update();
                 }
                 else {
-                    if (game.getActualLife() == 0) this.returnMenu();
-                    else game.looseLife();
                     this.textField.setStyle("-fx-border-color: #CD5C5C; -fx-border-width: 4px;");
                 }
-                this.timer.cancel();
-                this.update();
                 this.textField.setText("");
             }
         });
