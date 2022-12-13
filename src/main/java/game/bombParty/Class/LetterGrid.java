@@ -3,6 +3,7 @@ package game.bombParty.Class;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 
 import java.util.*;
 
@@ -13,20 +14,22 @@ public final class LetterGrid extends GridPane {
         for (AllLettersForGame currentLetter: AllLettersForGame.values()) {
             this.letterList.add(new Letter(currentLetter));
         }
-        this.setLayoutX(370);
-        this.setLayoutY(504);
+        this.setLayoutX(75);
+        this.setLayoutY(180);
         this.setGridChildren();
     }
 
-    private void setGridChildren() {
+    public void setGridChildren() {
         int cpt = 0;
         this.getChildren().clear();
-        for (int row = 0; row < this.letterList.size() / 7; ++row) {
-            for (int column = 0; column < this.letterList.size() / 3; ++column) {
+        for (int row = 0; row < this.letterList.size() / 3; ++row) {
+            for (int column = 0; column < this.letterList.size() / 7; ++column) {
+                this.letterList.get(cpt).unuse();
                 Label label = new Label(this.letterList.get(cpt).getValue());
-                label.setMinWidth(20);
-                label.setMinHeight(20);
+                label.setMinWidth(30);
+                label.setMinHeight(30);
                 label.setAlignment(Pos.CENTER);
+                label.setFont(new Font("Arial", 25));
                 this.add(label, column, row);
                 ++cpt;
             }
@@ -54,7 +57,6 @@ public final class LetterGrid extends GridPane {
         for (Letter currentLetter: this.letterList) {
             if (!currentLetter.getUse()) return false;
         }
-        this.setGridChildren();
         return true;
     }
 }
