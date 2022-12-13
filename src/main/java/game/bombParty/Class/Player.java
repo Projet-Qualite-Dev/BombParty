@@ -1,7 +1,3 @@
-/**
- * Cette class permet de gérer le joueur.
- */
-
 package game.bombParty.Class;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -9,9 +5,15 @@ import javafx.beans.property.SimpleStringProperty;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Cette class permet de gérer le joueur.
+ */
 public final class Player {
+
+    /**
+     * La vie du joueur.
+     */
     private final Life life;
-    private final Set<Letter> letters;
 
 
     /**
@@ -20,10 +22,6 @@ public final class Player {
      */
     public Player(Life life) {
         this.life = life;
-        this.letters = new HashSet<>();
-        for (AllLettersForGame v: AllLettersForGame.values()) {
-            this.letters.add(new Letter(v));
-        }
     }
 
     /**
