@@ -37,7 +37,7 @@ public final class LetterGrid extends GridPane {
         this.getChildren().clear();
         for (int row = 0; row < this.letterList.size() / 3; ++row) {
             for (int column = 0; column < this.letterList.size() / 7; ++column) {
-                this.letterList.get(cpt).unuse();
+                this.letterList.get(cpt).unUse();
                 Label label = new Label(this.letterList.get(cpt).getValue());
                 label.setMinWidth(30);
                 label.setMinHeight(30);

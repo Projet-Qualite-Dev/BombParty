@@ -3,12 +3,12 @@ package game.bombParty.Class;
 /**
  * Cette class permet de gérer les lettres que le joueur rentre.
  */
-public class Letter {
+public final class Letter {
 
     /**
      * La valeur de la lettre.
      */
-    private AllLettersForGame value;
+    private final AllLettersForGame value;
     /**
      * Si la lettre a déjà été utilisée ou non.
      */
@@ -16,6 +16,7 @@ public class Letter {
 
     /**
      * Le constructeur de la class Letter.
+     *
      * @param value : La lettre.
      */
     public Letter(AllLettersForGame value) {
@@ -51,7 +52,7 @@ public class Letter {
     /**
      * Mettre la lettre non utilisée.
      */
-    public void unuse() {
+    public void unUse() {
         this.use = false;
     }
 
