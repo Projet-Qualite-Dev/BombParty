@@ -29,7 +29,7 @@ public final class HomePageController extends AnchorPane implements JavaFXContro
 
     @FXML
     public void initialize() {
-        this.initializeSlider(this.timeSlider, 5, 12, this.timeLabel);
+        this.initializeSlider(this.timeSlider, 10, 30, this.timeLabel);
         this.initializeSlider(this.difficultySlider, 1, 3, this.difficultyLabel);
     }
 
