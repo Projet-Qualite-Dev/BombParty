@@ -52,10 +52,6 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
      * Le nombre de points du joueur pour la partie.
      */
     private static int point;
-    /**
-     * La difficulté pour la partie en cours.
-     */
-    private final int diffictulty;
 
     /**
      * Le constructeur de la class GamePageController.
@@ -68,7 +64,6 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
     public GamePageController(Stage primaryStage, int time, int difficulty) throws Exception {
         GamePageController.primaryStage = primaryStage;
         this.time = time;
-        this.diffictulty = difficulty;
 
         point = 0;
         this.loadFXMLFile("Game");
@@ -92,7 +87,7 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
 
                     this.textField.setStyle("-fx-border-color: #71C562; -fx-border-width: 4px;");
                     this.letterGrid.setUseForAWord(input);
-                    if (this.letterGrid.isFull()) game.winLife(); // Si il a déjà rempli toutes les lettres, il y a une réinitialisation de la letterGrid.
+                    if (this.letterGrid.isFull()) game.winLife(); // S'il a déjà rempli toutes les lettres, il y a une réinitialisation de la letterGrid.
 
                     this.timer.cancel();
                     this.update();
