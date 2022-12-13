@@ -6,7 +6,14 @@ import javafx.beans.property.SimpleStringProperty;
  * Cette class permet de gérer les vies du joueur.
  */
 public final class Life {
+
+    /**
+     * Valeur de la vie actuelle.
+     */
     private int actualLife;
+    /**
+     * Valeur de la vie actuelle sous forme de StringProperty pour la bind à un Label.
+     */
     private final SimpleStringProperty LIFE = new SimpleStringProperty();
 
     /**
@@ -19,7 +26,7 @@ public final class Life {
     /**
      * Avoir la vie actuelle.
      *
-     * @return int : Vie actuelle.
+     * @return Vie actuelle.
      */
     public int getActualLife() {
         return this.actualLife;
@@ -28,7 +35,7 @@ public final class Life {
     /**
      * Avoir la vie actuelle.
      *
-     * @return SimpleStringProperty : Vie actuelle.
+     * @return Vie actuelle.
      */
     public SimpleStringProperty getStringLife(){
         this.updateStringProperty();
@@ -44,7 +51,7 @@ public final class Life {
     }
 
     /**
-     * Pemet de faire gagner une vie.
+     * Permet de faire gagner une vie.
      */
     public void winLife() {
         ++this.actualLife;
