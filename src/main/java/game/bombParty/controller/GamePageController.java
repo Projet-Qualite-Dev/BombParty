@@ -87,7 +87,7 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
 
                     this.textField.setStyle("-fx-border-color: #71C562; -fx-border-width: 4px;");
                     this.letterGrid.setUseForAWord(input);
-                    if (this.letterGrid.isFull()) game.winLife(); // S'il a déjà rempli toutes les lettres, il y a une réinitialisation de la letterGrid.
+                    if (this.letterGrid.isFull()) game.winLife(); // Si le joueur a déjà rempli toutes les lettres, il y a une réinitialisation de la letterGrid.
 
                     this.timer.cancel();
                     this.update();
@@ -123,8 +123,8 @@ public final class GamePageController extends AnchorPane implements JavaFXContro
      */
     @FXML
     public void startGame() {
+        this.textField.requestFocus();
         if (!game.isStarted()) {
-            this.textField.requestFocus();
             game.start();
             this.update();
             this.getChildren().add(this.letterGrid);
