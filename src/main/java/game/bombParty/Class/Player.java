@@ -2,9 +2,6 @@ package game.bombParty.Class;
 
 import javafx.beans.property.SimpleStringProperty;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * Cette class permet de gérer le joueur.
  */
@@ -27,7 +24,7 @@ public final class Player {
     /**
      * Avoir la vie du joueur.
      *
-     * @return Life : La vie du joueur.
+     * @return La vie du joueur.
      */
     public Life getLife() {
         return this.life;
@@ -36,7 +33,7 @@ public final class Player {
     /**
      * Avoir la vie du joueur.
      *
-     * @return int : La vie du joueur.
+     * @return La vie du joueur.
      */
     public int getActualLife() {
         return this.life.getActualLife();
@@ -45,7 +42,7 @@ public final class Player {
     /**
      * Avoir la vie du joueur.
      *
-     * @return SimpleStringProperty : La vie du joueur.
+     * @return La vie du joueur.
      */
     public SimpleStringProperty getStringLife() {
         return this.life.getStringLife();
