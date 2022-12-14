@@ -19,7 +19,6 @@ public class PlayerTest {
         Assertions.assertEquals(player.getLife() , life);
     }
 
-
     @Test
     void getStringLifeTest() {
         Life life = new Life();
