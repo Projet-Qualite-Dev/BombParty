@@ -45,7 +45,7 @@ public final class Letter {
     /**
      * Mettre la lettre utilisée.
      */
-    void use(){
+    public void use(){
         this.use = true;
     }
 
