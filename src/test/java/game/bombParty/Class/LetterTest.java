@@ -14,12 +14,29 @@ public class LetterTest {
     @Test
     void getUseTest() {
         Letter letter= new Letter(AllLettersForGame.A);
-        Assertions.assertEquals(letter.getUse(), false);
+        Assertions.assertFalse(letter.getUse());
     }
 
     @Test
-    void getUseTest() {
+    void useTest() {
         Letter letter= new Letter(AllLettersForGame.A);
-        Assertions.assertEquals(letter.getUse(), false);
+        letter.use();
+        Assertions.assertTrue(letter.getUse());
+    }
+
+    @Test
+    void unUseTest() {
+        Letter letter= new Letter(AllLettersForGame.A);
+        letter.unUse();
+        Assertions.assertFalse(letter.getUse());
+    }
+
+    @Test
+    void getColorTest() {
+        Letter letter= new Letter(AllLettersForGame.A);
+        letter.unUse();
+        Assertions.assertEquals(letter.getColor(), "white");
+        letter.use();
+        Assertions.assertEquals(letter.getColor(), "green");
     }
 }
