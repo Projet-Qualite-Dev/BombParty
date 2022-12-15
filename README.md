@@ -41,3 +41,6 @@ Le mot est correct, les lettres présentes dans le mot “BRIOCHE” et égaleme
 
 Une fois cet alphabet complété, il se réinitialise et ajoute une vie au compteur de l’utilisateur.
 Le nombre de vie n’est pas limité.
+
+## Manuel d'utilisation : 
+![](manuel_utilisation.gif)
