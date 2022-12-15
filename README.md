@@ -5,9 +5,7 @@ Pour pouvoir avoir notre projet vous avez 2 solutions :
 
 ## Installation manuelle :
 Ouvrir un terminal de commande :
-```
-git clone https://github.com/Projet-Qualite-Dev/BombParty.git
-```
+`git clone https://github.com/Projet-Qualite-Dev/BombParty.git`
 
 ## Installation avec Intellij IDEA :
 Au lancement de la page d'accueil d'Intellij IDEA, cliquer sur **Get from VCS**. Dans la section **Repository ULR**, rentrer dans **URL** : `https://github.com/Projet-Qualite-Dev/BombParty.git`
