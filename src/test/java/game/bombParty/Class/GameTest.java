@@ -13,7 +13,7 @@ public class GameTest {
     }
 
     @Test
-    void isStratedTest() throws Exception {
+    void isStartedTest() throws Exception {
         Game game = new Game(new Player(new Life()), 3);
         Assertions.assertFalse(game.isStarted());
     }
